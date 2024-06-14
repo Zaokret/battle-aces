@@ -8,8 +8,12 @@
   "version": "1.0.0",
   "main": "",
   "scripts": {
-    "scrape": "node units.js && node download-images.js && node png-to-jpg.js && node json-to-md.js"
+    "scrape": "node units.js && node download-images.js && node png-to-jpg.js && node json-to-md.js",
+    "lint": "prettier ./data/units.json --write"
   },
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^3.3.2"
+  }
 }
