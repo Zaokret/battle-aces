@@ -19,7 +19,7 @@ const headers = [
 ]
 
 const createImageLink = (unitName) => {
-    return `<img src="./images/units/${unitName}-black.png" style="padding:50px !important;" height="100">`;
+    return `<img src="./images/units/${unitName}-black.png" style="padding:50px !important; max-width: 100px !important;" height="100">`;
 }
 
 const dictionaries = units.map(unit => {
