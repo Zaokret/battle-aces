@@ -47,4 +47,8 @@ const md = json2md({
     table: {headers: headers, rows: dictionaries}, 
 })
 
-fs.writeFileSync('data/units.md', md);
+if (!fs.existsSync('./docs')) {
+    fs.mkdirSync('./docs');
+}
+
+fs.writeFileSync('docs/units.md', md);
