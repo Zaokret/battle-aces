@@ -19,7 +19,7 @@ const headers = [
 ]
 
 const createImageLink = (unitName) => {
-    return `[<img src="../images/units/${unitName}-black.png" style="max-width: 100px !important;" height="100">](../images/units/${unitName}.png)`;
+    return `[<img src="../images/units/${unitName}-black.png" style="padding:50px;">](../images/units/${unitName}.png)`;
 }
 
 const dictionaries = units.map(unit => {
