@@ -19,7 +19,7 @@ const headers = [
 ]
 
 const createImageLink = (unitName) => {
-    return `<img src="./images/units/${unitName}-black.png" style="padding:50px !important;">`;
+    return `<img src="./images/units/${unitName}-black.png" style="padding:50px !important;" height="100">`;
 }
 
 const dictionaries = units.map(unit => {
@@ -43,8 +43,8 @@ const dictionaries = units.map(unit => {
 
 const md = json2md({
     h1: 'Battle Aces',
-    p: 'run `npm install` to install project dependencies',
-    p: 'run `npm run scrape` to download the latest unit information and assets from `https://www.playbattleaces.com` ',
+    p: ['run `npm install` to install project dependencies', 
+        'run `npm run scrape` to download the latest unit information and assets from `https://www.playbattleaces.com`'],
     table: {headers: headers, rows: dictionaries}, 
 })
 
