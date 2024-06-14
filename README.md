@@ -5,6 +5,7 @@ run `npm install` to install project dependencies
 run `npm run scrape` to download the latest unit information from `https://www.playbattleaces.com` with the following headers
 ```
 headers = [
+    "Icon",
     "Name",
     "Description",
     "Tech Tier",
