@@ -21,6 +21,7 @@
 | Mortar | Anti-Ground Splash Ground Unit | Foundry | 5 | 4 | 5 | 2 | Setup | 5 | 125 | 125 |
 | Swift Shocker | Anti-Ground Splash Ground Unit | Foundry | 5 | 2 | 2 | 4 | / | 5 | 125 | 125 |
 | Destroyer | Anti-Ground Burst Damage Ground Unit | Foundry | 5 | 3 | 2 | 2 | / | 5 | 125 | 125 |
+| Turret | Versatile Base Defense | Foundry | 2 | 4 | 4 | 0 | / | 0 | 100 | 50 |
 | Butterfly | Anti-Ground Air Unit | Starforge | 5 | 1 | 2 | 3 | / | 5 | 125 | 125 |
 | Dragonfly | Versatile Air Unit | Starforge | 3 | 4 | 2 | 4 | / | 5 | 125 | 125 |
 | Falcon | Anti-Ground Air Unit | Starforge | 3 | 4 | 2 | 1 | / | 5 | 125 | 125 |
