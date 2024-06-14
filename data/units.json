@@ -1,6 +1,5 @@
 [
   {
-    "antiAir": false,
     "costBandwidth": 2,
     "costMatter": 100,
     "costEnergy": 0,
@@ -12,10 +11,10 @@
     "techTier": "Core",
     "techTierId": 0,
     "unitAbility": null,
-    "unitTag": "Anti-Ground Melee Ground Unit"
+    "unitTag": "Anti-Ground Melee Ground Unit",
+    "slug": "crab"
   },
   {
-    "antiAir": false,
     "costBandwidth": 2,
     "costMatter": 75,
     "costEnergy": 25,
@@ -27,10 +26,10 @@
     "techTier": "Core",
     "techTierId": 0,
     "unitAbility": null,
-    "unitTag": "Anti-Air Ground Unit"
+    "unitTag": "Anti-Air Ground Unit",
+    "slug": "hunter"
   },
   {
-    "antiAir": false,
     "costBandwidth": 2,
     "costMatter": 100,
     "costEnergy": 0,
@@ -42,10 +41,10 @@
     "techTier": "Core",
     "techTierId": 0,
     "unitAbility": "Recall",
-    "unitTag": "Anti-Ground Ground Unit"
+    "unitTag": "Anti-Ground Ground Unit",
+    "slug": "recall"
   },
   {
-    "antiAir": false,
     "costBandwidth": 2,
     "costMatter": 75,
     "costEnergy": 25,
@@ -57,10 +56,10 @@
     "techTier": "Core",
     "techTierId": 0,
     "unitAbility": "Recall",
-    "unitTag": "Anti-Air Ground Unit"
+    "unitTag": "Anti-Air Ground Unit",
+    "slug": "recallhunter"
   },
   {
-    "antiAir": false,
     "costBandwidth": 1,
     "costMatter": 50,
     "costEnergy": 0,
@@ -72,10 +71,10 @@
     "techTier": "Core",
     "techTierId": 0,
     "unitAbility": null,
-    "unitTag": "Anti-Ground Melee Ground Unit"
+    "unitTag": "Anti-Ground Melee Ground Unit",
+    "slug": "scorpion"
   },
   {
-    "antiAir": false,
     "costBandwidth": 2,
     "costMatter": 75,
     "costEnergy": 25,
@@ -87,10 +86,10 @@
     "techTier": "Core",
     "techTierId": 0,
     "unitAbility": null,
-    "unitTag": "Versatile Ground Unit"
+    "unitTag": "Versatile Ground Unit",
+    "slug": "beetle"
   },
   {
-    "antiAir": false,
     "costBandwidth": 2,
     "costMatter": 100,
     "costEnergy": 0,
@@ -102,10 +101,10 @@
     "techTier": "Core",
     "techTierId": 0,
     "unitAbility": "Blink",
-    "unitTag": "Anti-Ground Ground Unit"
+    "unitTag": "Anti-Ground Ground Unit",
+    "slug": "blink"
   },
   {
-    "antiAir": false,
     "costBandwidth": 2,
     "costMatter": 75,
     "costEnergy": 25,
@@ -117,10 +116,10 @@
     "techTier": "Core",
     "techTierId": 0,
     "unitAbility": "Blink",
-    "unitTag": "Anti-Air Ground Unit"
+    "unitTag": "Anti-Air Ground Unit",
+    "slug": "blinkhunter"
   },
   {
-    "antiAir": false,
     "costBandwidth": 1,
     "costMatter": 50,
     "costEnergy": 0,
@@ -132,10 +131,10 @@
     "techTier": "Core",
     "techTierId": 0,
     "unitAbility": "Overclock",
-    "unitTag": "Anti-Ground Ground Unit"
+    "unitTag": "Anti-Ground Ground Unit",
+    "slug": "gunbot"
   },
   {
-    "antiAir": false,
     "costBandwidth": 2,
     "costMatter": 75,
     "costEnergy": 25,
@@ -147,10 +146,10 @@
     "techTier": "Core",
     "techTierId": 0,
     "unitAbility": "Overclock",
-    "unitTag": "Anti-Air Ground Unit"
+    "unitTag": "Anti-Air Ground Unit",
+    "slug": "missilebot"
   },
   {
-    "antiAir": false,
     "costBandwidth": 1,
     "costMatter": 25,
     "costEnergy": 0,
@@ -162,10 +161,10 @@
     "techTier": "Core",
     "techTierId": 0,
     "unitAbility": null,
-    "unitTag": "Anti-Ground Melee Ground Unit"
+    "unitTag": "Anti-Ground Melee Ground Unit",
+    "slug": "wasp"
   },
   {
-    "antiAir": false,
     "costBandwidth": 2,
     "costMatter": 75,
     "costEnergy": 25,
@@ -177,10 +176,10 @@
     "techTier": "Core",
     "techTierId": 0,
     "unitAbility": null,
-    "unitTag": "Anti-Air Ground Unit"
+    "unitTag": "Anti-Air Ground Unit",
+    "slug": "hornet"
   },
   {
-    "antiAir": false,
     "costBandwidth": 5,
     "costMatter": 125,
     "costEnergy": 125,
@@ -192,10 +191,10 @@
     "techTier": "Foundry",
     "techTierId": 1,
     "unitAbility": null,
-    "unitTag": "Anti-Ground Splash Ground Unit\n"
+    "unitTag": "Anti-Ground Splash Ground Unit\n",
+    "slug": "ballista"
   },
   {
-    "antiAir": false,
     "costBandwidth": 5,
     "costMatter": 125,
     "costEnergy": 125,
@@ -207,10 +206,10 @@
     "techTier": "Foundry",
     "techTierId": 1,
     "unitAbility": null,
-    "unitTag": "Anti-Ground Durable Melee Splash Ground Unit"
+    "unitTag": "Anti-Ground Durable Melee Splash Ground Unit",
+    "slug": "kingcrab"
   },
   {
-    "antiAir": false,
     "costBandwidth": 5,
     "costMatter": 125,
     "costEnergy": 125,
@@ -222,10 +221,10 @@
     "techTier": "Foundry",
     "techTierId": 1,
     "unitAbility": null,
-    "unitTag": "Anti-Ground Durable Melee Ground Unit"
+    "unitTag": "Anti-Ground Durable Melee Ground Unit",
+    "slug": "crusader"
   },
   {
-    "antiAir": false,
     "costBandwidth": 2,
     "costMatter": 50,
     "costEnergy": 50,
@@ -237,10 +236,10 @@
     "techTier": "Foundry",
     "techTierId": 1,
     "unitAbility": null,
-    "unitTag": "Anti-Ground Disposable Splash Ground Unit"
+    "unitTag": "Anti-Ground Disposable Splash Ground Unit",
+    "slug": "bomber"
   },
   {
-    "antiAir": false,
     "costBandwidth": 5,
     "costMatter": 125,
     "costEnergy": 125,
@@ -252,10 +251,10 @@
     "techTier": "Foundry",
     "techTierId": 1,
     "unitAbility": null,
-    "unitTag": "Anti-Ground Splash Ground Unit"
+    "unitTag": "Anti-Ground Splash Ground Unit",
+    "slug": "shocker"
   },
   {
-    "antiAir": false,
     "costBandwidth": 5,
     "costMatter": 125,
     "costEnergy": 125,
@@ -267,10 +266,10 @@
     "techTier": "Foundry",
     "techTierId": 1,
     "unitAbility": "Recall",
-    "unitTag": "Anti-Ground Splash Ground Unit"
+    "unitTag": "Anti-Ground Splash Ground Unit",
+    "slug": "recallshocker"
   },
   {
-    "antiAir": false,
     "costBandwidth": 5,
     "costMatter": 125,
     "costEnergy": 125,
@@ -282,10 +281,10 @@
     "techTier": "Foundry",
     "techTierId": 1,
     "unitAbility": "Setup",
-    "unitTag": "Anti-Ground Splash Ground Unit"
+    "unitTag": "Anti-Ground Splash Ground Unit",
+    "slug": "mortar"
   },
   {
-    "antiAir": false,
     "costBandwidth": 5,
     "costMatter": 125,
     "costEnergy": 125,
@@ -297,10 +296,10 @@
     "techTier": "Foundry",
     "techTierId": 1,
     "unitAbility": null,
-    "unitTag": "Anti-Ground Splash Ground Unit"
+    "unitTag": "Anti-Ground Splash Ground Unit",
+    "slug": "swiftshocker"
   },
   {
-    "antiAir": false,
     "costBandwidth": 5,
     "costMatter": 125,
     "costEnergy": 125,
@@ -312,10 +311,10 @@
     "techTier": "Foundry",
     "techTierId": 1,
     "unitAbility": null,
-    "unitTag": "Anti-Ground Burst Damage Ground Unit"
+    "unitTag": "Anti-Ground Burst Damage Ground Unit",
+    "slug": "destroyer"
   },
   {
-    "antiAir": false,
     "costBandwidth": 5,
     "costMatter": 125,
     "costEnergy": 125,
@@ -327,10 +326,10 @@
     "techTier": "Starforge",
     "techTierId": 2,
     "unitAbility": null,
-    "unitTag": "Anti-Ground Air Unit"
+    "unitTag": "Anti-Ground Air Unit",
+    "slug": "butterfly"
   },
   {
-    "antiAir": false,
     "costBandwidth": 5,
     "costMatter": 125,
     "costEnergy": 125,
@@ -342,10 +341,10 @@
     "techTier": "Starforge",
     "techTierId": 2,
     "unitAbility": null,
-    "unitTag": "Versatile Air Unit"
+    "unitTag": "Versatile Air Unit",
+    "slug": "dragonfly"
   },
   {
-    "antiAir": false,
     "costBandwidth": 5,
     "costMatter": 125,
     "costEnergy": 125,
@@ -357,10 +356,10 @@
     "techTier": "Starforge",
     "techTierId": 2,
     "unitAbility": null,
-    "unitTag": "Anti-Ground Air Unit"
+    "unitTag": "Anti-Ground Air Unit",
+    "slug": "falcon"
   },
   {
-    "antiAir": false,
     "costBandwidth": 5,
     "costMatter": 125,
     "costEnergy": 125,
@@ -372,10 +371,10 @@
     "techTier": "Starforge",
     "techTierId": 2,
     "unitAbility": null,
-    "unitTag": "Anti-Air Air Unit"
+    "unitTag": "Anti-Air Air Unit",
+    "slug": "airship"
   },
   {
-    "antiAir": false,
     "costBandwidth": 2,
     "costMatter": 50,
     "costEnergy": 50,
@@ -387,10 +386,10 @@
     "techTier": "Starforge",
     "techTierId": 2,
     "unitAbility": "Recall",
-    "unitTag": "Anti-Ground Ground Unit"
+    "unitTag": "Anti-Ground Ground Unit",
+    "slug": "advancedrecall"
   },
   {
-    "antiAir": false,
     "costBandwidth": 5,
     "costMatter": 125,
     "costEnergy": 125,
@@ -402,10 +401,10 @@
     "techTier": "Starforge",
     "techTierId": 2,
     "unitAbility": null,
-    "unitTag": "Anti-Ground Fast Ground Unit"
+    "unitTag": "Anti-Ground Fast Ground Unit",
+    "slug": "stinger"
   },
   {
-    "antiAir": false,
     "costBandwidth": 0,
     "costMatter": 200,
     "costEnergy": 100,
@@ -417,10 +416,10 @@
     "techTier": "Starforge",
     "techTierId": 2,
     "unitAbility": null,
-    "unitTag": "Versatile Base Defense"
+    "unitTag": "Versatile Base Defense",
+    "slug": "heavyturret"
   },
   {
-    "antiAir": false,
     "costBandwidth": 10,
     "costMatter": 250,
     "costEnergy": 250,
@@ -432,10 +431,10 @@
     "techTier": "Advanced Foundry",
     "techTierId": 3,
     "unitAbility": null,
-    "unitTag": "Anti-Ground Splash Ground Unit"
+    "unitTag": "Anti-Ground Splash Ground Unit",
+    "slug": "heavyballista"
   },
   {
-    "antiAir": false,
     "costBandwidth": 5,
     "costMatter": 125,
     "costEnergy": 125,
@@ -447,10 +446,10 @@
     "techTier": "Advanced Foundry",
     "techTierId": 3,
     "unitAbility": null,
-    "unitTag": "Anti-Air Splash Ground Unit"
+    "unitTag": "Anti-Air Splash Ground Unit",
+    "slug": "predator"
   },
   {
-    "antiAir": false,
     "costBandwidth": 10,
     "costMatter": 250,
     "costEnergy": 250,
@@ -462,10 +461,10 @@
     "techTier": "Advanced Starforge",
     "techTierId": 4,
     "unitAbility": null,
-    "unitTag": "Versatile Durable Air Unit"
+    "unitTag": "Versatile Durable Air Unit",
+    "slug": "bulwark"
   },
   {
-    "antiAir": false,
     "costBandwidth": 10,
     "costMatter": 250,
     "costEnergy": 250,
@@ -477,10 +476,10 @@
     "techTier": "Advanced Starforge",
     "techTierId": 4,
     "unitAbility": null,
-    "unitTag": "Anti-Ground Durable Air Unit"
+    "unitTag": "Anti-Ground Durable Air Unit",
+    "slug": "katbus"
   },
   {
-    "antiAir": false,
     "costBandwidth": 2,
     "costMatter": 50,
     "costEnergy": 50,
@@ -492,10 +491,10 @@
     "techTier": "Advanced Starforge",
     "techTierId": 4,
     "unitAbility": null,
-    "unitTag": "Versatile Air Unit"
+    "unitTag": "Versatile Air Unit",
+    "slug": "locust"
   },
   {
-    "antiAir": false,
     "costBandwidth": 5,
     "costMatter": 125,
     "costEnergy": 125,
@@ -507,6 +506,7 @@
     "techTier": "Advanced Starforge",
     "techTierId": 4,
     "unitAbility": null,
-    "unitTag": "Anti-Air Air Unit"
+    "unitTag": "Anti-Air Air Unit",
+    "slug": "valkyrie"
   }
 ]

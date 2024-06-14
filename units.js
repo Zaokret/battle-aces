@@ -29,18 +29,19 @@ const writeToFile = (data) => {
 
 const parseUnits = (body) => {
     return body.pageProps.data.allUnits.map(unit => ({
-        costBandwidth: unit.costBandwidth,
-        costMatter: unit.costMatter,
-        costEnergy: unit.costEnergy,
-        name: unit.name,
-        statDamage: unit.statDamage,
-        statHealth: unit.statHealth,
-        statRange: unit.statRange,
-        statSpeed: unit.statSpeed,
-        techTier: getTechTierNameById(unit.techTier.techTierId),
-        techTierId: unit.techTier.techTierId,
-        unitAbility: unit.unitAbility && unit.unitAbility.name,
-        unitTag: unit.unitTag,
+      costBandwidth: unit.costBandwidth,
+      costMatter: unit.costMatter,
+      costEnergy: unit.costEnergy,
+      name: unit.name,
+      statDamage: unit.statDamage,
+      statHealth: unit.statHealth,
+      statRange: unit.statRange,
+      statSpeed: unit.statSpeed,
+      techTier: getTechTierNameById(unit.techTier.techTierId),
+      techTierId: unit.techTier.techTierId,
+      unitAbility: unit.unitAbility && unit.unitAbility.name,
+      unitTag: unit.unitTag,
+      slug: unit.slug,
     }))
 }
 
