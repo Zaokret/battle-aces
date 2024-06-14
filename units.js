@@ -47,10 +47,14 @@ const saveUnits = (json) => {
 }
 
 const writeToFile = (data) => {
-    fs.writeFile('data/units.json', JSON.stringify(data), 'utf8', (err) => {
-        if (err) throw err;
-            console.log('The file data/units.json has been created!');
-    });
+  if (!fs.existsSync('./data')) {
+    fs.mkdirSync('./data');
+  }
+
+  fs.writeFile('data/units.json', JSON.stringify(data), 'utf8', (err) => {
+      if (err) throw err;
+          console.log('The file data/units.json has been created!');
+  });
 }
 
 const parseAndSortUnits = (body) => {

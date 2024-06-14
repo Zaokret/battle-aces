@@ -1,14 +1,14 @@
 {
   "dependencies": {
+    "jimp": "^0.22.12",
     "json2md": "^2.0.1"
   },
   "name": "battle-aces",
   "description": "Scraper for https://www.playbattleaces.com/",
   "version": "1.0.0",
   "main": "",
-  "devDependencies": {},
   "scripts": {
-    "scrape": "node units.js && node json-to-md.js && node download-images.js"
+    "scrape": "node units.js && node download-images.js && node png-to-jpg.js && node json-to-md.js"
   },
   "author": "",
   "license": "MIT"
