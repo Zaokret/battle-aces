@@ -315,6 +315,21 @@
     "slug": "destroyer"
   },
   {
+    "costBandwidth": 5,
+    "costMatter": 125,
+    "costEnergy": 125,
+    "name": "Raider",
+    "statDamage": 5,
+    "statHealth": 3,
+    "statRange": 2,
+    "statSpeed": 5,
+    "techTier": "Foundry",
+    "techTierId": 1,
+    "unitAbility": null,
+    "unitTag": "Anti-Worker Ground Unit",
+    "slug": "raider"
+  },
+  {
     "costBandwidth": 0,
     "costMatter": 100,
     "costEnergy": 50,
