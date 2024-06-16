@@ -17,7 +17,11 @@ const images = [
     "stats/damage.png", 
     "stats/health.png", 
     "stats/range.png", 
-    "stats/speed.png"
+    "stats/speed.png",
+    "abilities/blink.png",
+    "abilities/overclock.png",
+    "abilities/recall.png",
+    "abilities/setup.png"
 ].concat(units.map(unit => `units/${unit.slug}.png`))
 .map((path) => `${root}/${path}`);
 
