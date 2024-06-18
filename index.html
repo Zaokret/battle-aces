@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deck Builder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main>
+        <h1>Battle Aces Deck Builder</h1>
+        <div id="deck">
+            <div class="row">
+                <div id="slot-0" class="t0 card"></div>
+                <div id="slot-1" class="t1 card"></div>
+                <div id="slot-2" class="t3 card"></div>
+                <div id="slot-3" class="t3 t1 card"></div>
+            </div>
+            <div class="row">
+                <div id="slot-4" class="t0 card"></div>
+                <div id="slot-5" class="t2 card"></div>
+                <div id="slot-6" class="t4 card"></div>
+                <div id="slot-7" class="t4 t2 card"></div>
+            </div>
+        </div>
+        <div class="row actions">
+            <button id="share-button" type="button">Share</button>
+            <button id="animate-button" type="button">Animate</button>
+            <button id="reset-button" type="button">Reset</button>
+        </div>
+
+        <div popover="auto" id="select-unit"></div>
+        <div id="video"></div>
+        
+        <script src="./index.js"></script>
+    </main>
+</body>
+</html>

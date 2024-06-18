@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <video id="asdrs" height="300" width="300"  src="https://cdn.playbattleaces.com/videos/turnarounds/blink.mp4"></video>
+    <br>
+    <input id="my-input" type="range" min="1" max="100" value="1" />
+    <script>
+    function scale (number, inMin, inMax, outMin, outMax) {
+        return (number - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
+    }
+    document.getElementById('my-input').addEventListener('input', (event) => {
+        const video = document.getElementById('asdrs');
+        video.currentTime = scale(event.target.value, 1, 100, 0, video.duration);
+    })
+    </script>
+</body>
+</html>
