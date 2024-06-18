@@ -88,7 +88,7 @@ function fetchBuildId() {
         .then(extractBuildId)
         .then((id) => {
             const buildId = localStorage.getItem('buildId');
-            if(id !== buildId) {
+            if (id !== buildId) {
                 localStorage.clear();
                 localStorage.setItem('buildId', id);
             }
@@ -96,9 +96,7 @@ function fetchBuildId() {
         });
 }
 
-function fetchUnitsAndTiers(buildId) { 
-
-    
+function fetchUnitsAndTiers(buildId) {
     // const units = localStorage.getItem('units');
     // const tiers = localStorage.getItem('tiers');
     // if (units && units.length > 0 && tiers && tiers.length > 0) {
@@ -108,11 +106,12 @@ function fetchUnitsAndTiers(buildId) {
     //     });
     // }
     // fetch(urlBuilder(buildId))
-    const url = window.location.protocol +
-    '//' +
-    window.location.host +
-    window.location.pathname +
-    'data/units.json'
+    const url =
+        window.location.protocol +
+        '//' +
+        window.location.host +
+        window.location.pathname +
+        'data/units.json';
     return fetch(url)
         .then((res) => res.json())
         .then((body) => {
@@ -120,34 +119,37 @@ function fetchUnitsAndTiers(buildId) {
             // const units = parseAndSortUnits(body);
             // localStorage.setItem('units', JSON.stringify(units));
             // localStorage.setItem('tiers', JSON.stringify(tiers));
-            
-            return { units: body, tiers: [
-                {
-                  "name": "Advanced Foundry",
-                  "slug": "advancedfoundry",
-                  "techTierId": 3
-                },
-                {
-                  "name": "Advanced Starforge",
-                  "slug": "advancedstarforge",
-                  "techTierId": 4
-                },
-                {
-                  "name": "Starforge",
-                  "slug": "starforge",
-                  "techTierId": 2
-                },
-                {
-                  "name": "Foundry",
-                  "slug": "foundry",
-                  "techTierId": 1
-                },
-                {
-                  "name": "Core",
-                  "slug": "core",
-                  "techTierId": 0
-                }
-              ] };
+
+            return {
+                units: body,
+                tiers: [
+                    {
+                        name: 'Advanced Foundry',
+                        slug: 'advancedfoundry',
+                        techTierId: 3,
+                    },
+                    {
+                        name: 'Advanced Starforge',
+                        slug: 'advancedstarforge',
+                        techTierId: 4,
+                    },
+                    {
+                        name: 'Starforge',
+                        slug: 'starforge',
+                        techTierId: 2,
+                    },
+                    {
+                        name: 'Foundry',
+                        slug: 'foundry',
+                        techTierId: 1,
+                    },
+                    {
+                        name: 'Core',
+                        slug: 'core',
+                        techTierId: 0,
+                    },
+                ],
+            };
         });
 }
 
@@ -187,7 +189,7 @@ function setupCards() {
                 resetAnimation();
                 const list = createUnitInputs(filteredUnits, (name, _) => {
                     card.innerHTML = '';
-                    
+
                     const img = createSelectedUnitImage(name);
 
                     card.appendChild(img);
@@ -204,10 +206,9 @@ function setupCards() {
     }
 
     const sharedDeck = readDeckFromUrl();
-    if(validateDeck(sharedDeck)) {
+    if (validateDeck(sharedDeck)) {
         insertDeckIntoSlots(sharedDeck);
-    }
-    else {
+    } else {
         saveDeckToUrl([]);
     }
 }
@@ -240,9 +241,9 @@ function addHoverEffect(el) {
 
 function getUniqTagsFromUnits(unitList) {
     const allTags = unitList.reduce((tags, unit) => {
-        tags = tags.concat(parseUnitTags(unit.unitTag))
+        tags = tags.concat(parseUnitTags(unit.unitTag));
         return tags;
-    }, [])
+    }, []);
 
     const set = [...new Set(allTags)];
 
@@ -250,47 +251,46 @@ function getUniqTagsFromUnits(unitList) {
 }
 
 function createTagFilter(tags, handleChecked) {
-    const filter = document.createElement('div')
-    filter.className = 'tag-filter'
+    const filter = document.createElement('div');
+    filter.className = 'tag-filter';
     const sortedTags = tags.sort();
-    sortedTags.forEach(tag=>{
+    sortedTags.forEach((tag) => {
         const inputWrapper = document.createElement('div');
-        inputWrapper.className = 'tag-input-wrapper'
+        inputWrapper.className = 'tag-input-wrapper';
 
-        const checkbox = document.createElement('input')
-        checkbox.className = 'tag-input'
+        const checkbox = document.createElement('input');
+        checkbox.className = 'tag-input';
         checkbox.type = 'checkbox';
         checkbox.id = tag;
-        checkbox.value = tag
+        checkbox.value = tag;
 
         const label = document.createElement('label');
-        label.className = 'tag-input-label'
+        label.className = 'tag-input-label';
         label.setAttribute('for', tag);
         label.innerText = tag;
-        label.style.userSelect = 'none'
+        label.style.userSelect = 'none';
 
         checkbox.addEventListener('input', () => {
-            if(checkbox.checked) {
-                label.classList.add('checked')
-            } 
-            else {
-                label.classList.remove('checked')
+            if (checkbox.checked) {
+                label.classList.add('checked');
+            } else {
+                label.classList.remove('checked');
             }
-            handleChecked(tag, checkbox.checked)
-        })
+            handleChecked(tag, checkbox.checked);
+        });
 
-        inputWrapper.appendChild(checkbox)
-        inputWrapper.appendChild(label)
+        inputWrapper.appendChild(checkbox);
+        inputWrapper.appendChild(label);
 
-        filter.appendChild(inputWrapper)
-    })
+        filter.appendChild(inputWrapper);
+    });
     return filter;
 }
 
 function createUnitInput(unitList, callback) {
-    return unitList.map(unit => {
+    return unitList.map((unit) => {
         const div = document.createElement('div');
-        div.id = `unit-input-${unit.slug}`
+        div.id = `unit-input-${unit.slug}`;
         const img = createImageElement(
             getImageUrl(unit.name, 'units'),
             unit.id
@@ -302,85 +302,95 @@ function createUnitInput(unitList, callback) {
         addHoverEffect(img);
 
         const link = document.createElement('a');
-        link.className = 'unit-out-link'
+        link.className = 'unit-out-link';
         link.href = `https://www.playbattleaces.com/units/${unit.slug}`;
-        link.target="_blank" 
-        link.rel="noopener noreferrer"
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
 
         const text = document.createElement('div');
         text.innerText = unit.name;
         text.className = 'card-name';
 
-        link.appendChild(text)
+        link.appendChild(text);
 
         div.appendChild(img);
         div.appendChild(link);
         div.appendChild(createUnitStats(unit));
         div.appendChild(createUnitCost(unit));
-        div.appendChild(createUnitDescription(unit, minHeight(unitList)))
+        div.appendChild(createUnitDescription(unit, minHeight(unitList)));
 
         // addVideoPreviewOnHover(unit.name, div)
-
         return div;
-    })
-    }
+    });
+}
 
 function createUnitInputs(unitList, callback) {
     const list = document.createElement('div');
     list.className = 'card-list';
-    const filter = createTagFilter(getUniqTagsFromUnits(unitList), (tag,checked) => {
-
-        const checkboxes = Array.from(document.getElementsByClassName('tag-input'))
-        const tags = checkboxes.filter(box => box.checked).map(box=>box.value);
-        unitList.forEach(unit => {
-            const unitTags = parseUnitTags(unit.unitTag)
-            const included = tags.every(tag => {
-                if(tag === 'Anti-Air') {
-                    return ['Anti-Air', 'Versatile'].some(t => unitTags.some(ut => t === ut))
-                }
-                if(tag === 'Anti-Ground') {
-                    return ['Anti-Ground', 'Versatile'].some(t => unitTags.some(ut => t === ut))
-                }
-                return unitTags.some(ut => tag === ut)
-            })
-            const el = document.getElementById(`unit-input-${unit.slug}`)
-            included ? el.classList.remove('hide') : el.classList.add('hide');
-        })
-
-    });
-    list.appendChild(filter)
+    const filter = createTagFilter(
+        getUniqTagsFromUnits(unitList),
+        (tag, checked) => {
+            const checkboxes = Array.from(
+                document.getElementsByClassName('tag-input')
+            );
+            const tags = checkboxes
+                .filter((box) => box.checked)
+                .map((box) => box.value);
+            unitList.forEach((unit) => {
+                const unitTags = parseUnitTags(unit.unitTag);
+                const included = tags.every((tag) => {
+                    if (tag === 'Anti-Air') {
+                        return ['Anti-Air', 'Versatile'].some((t) =>
+                            unitTags.some((ut) => t === ut)
+                        );
+                    }
+                    if (tag === 'Anti-Ground') {
+                        return ['Anti-Ground', 'Versatile'].some((t) =>
+                            unitTags.some((ut) => t === ut)
+                        );
+                    }
+                    return unitTags.some((ut) => tag === ut);
+                });
+                const el = document.getElementById(`unit-input-${unit.slug}`);
+                included
+                    ? el.classList.remove('hide')
+                    : el.classList.add('hide');
+            });
+        }
+    );
+    list.appendChild(filter);
     list.append(...createUnitInput(unitList, callback));
     return list;
 }
 
 function minHeight(unitList) {
     const highest = unitList
-    .map(unit => parseUnitTags(unit.unitTag).length)
-    .sort((a,b) => b - a)[0]
+        .map((unit) => parseUnitTags(unit.unitTag).length)
+        .sort((a, b) => b - a)[0];
     return highest * 30;
 }
 
 function parseUnitTags(tags) {
     return tags
-    .replace(' Unit', '')
-    .replace(' Damage', '')
-    .replace(' Defense', '-Defense')
-    .replace('\n', '')
-    .split(' ')
+        .replace(' Unit', '')
+        .replace(' Damage', '')
+        .replace(' Defense', '-Defense')
+        .replace('\n', '')
+        .split(' ');
 }
 
 function createUnitDescription(unit, minHeight) {
-    const tags = parseUnitTags(unit.unitTag)
+    const tags = parseUnitTags(unit.unitTag);
     const desc = document.createElement('div');
-    desc.className = 'tag-list'
+    desc.className = 'tag-list';
     desc.style.minHeight = minHeight + 'px';
-    tags.forEach(tag => {
-        const p = document.createElement('p')
+    tags.forEach((tag) => {
+        const p = document.createElement('p');
         p.innerText = tag;
-        p.className = 'tag'
-        desc.appendChild(p)
-    })
-    
+        p.className = 'tag';
+        desc.appendChild(p);
+    });
+
     return desc;
 }
 
@@ -484,37 +494,31 @@ function readDeckFromUrl() {
         return [];
     }
     const decodedDeckString = window.atob(codedDeck);
-    const arr = decodedDeckString.split(',').map(s => s.replace('\n','').trim());
-    
-    
+    const arr = decodedDeckString
+        .split(',')
+        .map((s) => s.replace('\n', '').trim());
+
     return arr;
 }
 
 function validateDeck(names) {
-    
     // check for duplicates
-    const filtered = names.filter(Boolean)
+    const filtered = names.filter(Boolean);
     const set = [...new Set(filtered)];
-    if(filtered.length !== set.length ) {
+    if (filtered.length !== set.length) {
         return false;
     }
 
     // allowed tiers
     const tiers = [
-        [0],
-        [1],
-        [3],
-        [3, 1],
-        [0],
-        [2],
-        [4],
-        [4, 2],
-    ]
+        [0], [1], [3], [3, 1], 
+        [0], [2], [4], [4, 2]
+    ];
 
-    const deck = names.map(name => units.find(unit => unit.slug === name));
+    const deck = names.map((name) => units.find((unit) => unit.slug === name));
     return tiers.every((tier, index) => {
-        return !deck[index] || tier.includes(deck[index].techTierId)
-    })
+        return !deck[index] || tier.includes(deck[index].techTierId);
+    });
 }
 
 function insertDeckIntoSlots(deck) {
@@ -533,23 +537,23 @@ function createSelectedUnitImage(name) {
     cardImage.className = 'card-img';
     addHoverEffect(cardImage);
 
-    const unit = units.find(unit => unit.slug === name)
+    const unit = units.find((unit) => unit.slug === name);
 
     cardImage.addEventListener('mouseenter', function (event) {
         const existing = document.getElementById('selected-unit-preview');
-        if(existing || !unit) {
+        if (existing || !unit) {
             return;
         }
-        const preview = createUnitInput([unit], ()=> {})[0];
-        preview.id = 'selected-unit-preview'
+        const preview = createUnitInput([unit], () => {})[0];
+        preview.id = 'selected-unit-preview';
 
-        const main = document.querySelector('main')
-        main.appendChild(preview)
+        const main = document.querySelector('main');
+        main.appendChild(preview);
     });
 
     cardImage.addEventListener('mouseleave', function () {
-        const preview = document.getElementById('selected-unit-preview')
-        if(preview) preview.remove();
+        const preview = document.getElementById('selected-unit-preview');
+        if (preview) preview.remove();
     });
 
     return cardImage;
@@ -628,18 +632,9 @@ function createVideo(slug) {
     let isPlaying = false;
 
     video.addEventListener('click', () => {
-        !isPlaying ? video.play(): video.pause()
+        !isPlaying ? video.play() : video.pause();
         isPlaying = !isPlaying;
-        
     });
-
-    // video.addEventListener('mouseenter', () => {
-    //     video.play()
-    // });
-
-    // video.addEventListener('mouseleave', () => {
-    //     video.pause()
-    // });
 
     return animation;
 }
@@ -651,13 +646,3 @@ function removeVideo() {
     }
 }
 
-function addAnimateButton(callback) {
-    const btn = document.createElement('button');
-    btn.id = 'animate-button';
-    btn.type = 'button';
-    btn.innerText = 'Animate';
-
-    btn.addEventListener('click', () => {
-        callback();
-    });
-}
