@@ -83,16 +83,15 @@ function parseTechTiers(body) {
 }
 
 function fetchBuildId() {
-    const buildId = localStorage.getItem('buildId');
-    if (buildId) {
-        return Promise.resolve(buildId);
-    }
-
     return fetch(`https://www.playbattleaces.com/units`)
         .then((res) => res.text())
         .then(extractBuildId)
         .then((id) => {
-            localStorage.setItem('buildId', id);
+            const buildId = localStorage.getItem('buildId');
+            if(id !== buildId) {
+                localStorage.clear();
+                localStorage.setItem('buildId', id);
+            }
             return id;
         });
 }
