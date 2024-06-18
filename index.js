@@ -236,12 +236,39 @@ function createUnitInputs(unitList, callback) {
         div.appendChild(link);
         div.appendChild(createUnitStats(unit));
         div.appendChild(createUnitCost(unit));
+        div.appendChild(createUnitDescription(unit, minHeight(unitList)))
 
         // addVideoPreviewOnHover(unit.name, div)
 
         list.appendChild(div);
     }
     return list;
+}
+
+function minHeight(unitList) {
+    const highest = unitList
+    .map(unit => parseUnitTags(unit.unitTag).length)
+    .sort((a,b) => b - a)[0]
+    return highest * 30;
+}
+
+function parseUnitTags(tags) {
+    return tags.replace(' Unit', '').split(' ')
+}
+
+function createUnitDescription(unit, minHeight) {
+    const tags = parseUnitTags(unit.unitTag)
+    const desc = document.createElement('div');
+    desc.className = 'tag-list'
+    desc.style.minHeight = minHeight + 'px';
+    tags.forEach(tag => {
+        const p = document.createElement('p')
+        p.innerText = tag;
+        p.className = 'tag'
+        desc.appendChild(p)
+    })
+    
+    return desc;
 }
 
 function createUnitCost(unit) {

@@ -226,6 +226,7 @@ h1 {
     padding-bottom: 4px;
     margin: 5px;
     margin-top: 0px;
+    margin-bottom: 0px;
     background: rgb(57 57 57);
 }
 .cost-type {
@@ -285,4 +286,17 @@ h1 {
 
 body {
     background: black;
+}
+
+.tag-list {
+    margin: 5px;
+    margin-top: 0;
+    background-color: rgb(57 57 57);
+    text-align: center;
+}
+
+.tag {
+    color: white;
+    margin: 0;
+    padding: 5px 0px;
 }
