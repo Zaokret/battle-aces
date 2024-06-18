@@ -96,7 +96,9 @@ function fetchBuildId() {
         });
 }
 
-function fetchUnitsAndTiers(buildId) {
+function fetchUnitsAndTiers(buildId) { 
+
+    
     // const units = localStorage.getItem('units');
     // const tiers = localStorage.getItem('tiers');
     // if (units && units.length > 0 && tiers && tiers.length > 0) {
