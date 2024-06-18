@@ -42,14 +42,7 @@ const dictionaries = units.map(unit => {
 })
 
 const md = json2md({
-    h1: 'Battle Aces',
-    p: ['run `npm install` to install project dependencies', 
-        'run `npm run scrape` to download the latest unit information and assets from `https://www.playbattleaces.com`'],
     table: {headers: headers, rows: dictionaries}, 
 })
 
-// if (!fs.existsSync('./docs')) {
-//     fs.mkdirSync('./docs');
-// }
-
-fs.writeFileSync('README.md', md);
+fs.writeFileSync('./data/units.md', md);

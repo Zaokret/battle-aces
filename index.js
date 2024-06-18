@@ -168,7 +168,14 @@ function setupCards() {
             unitInput.togglePopover();
         });
     }
-    insertDeckIntoSlots(readDeckFromUrl());
+
+    const sharedDeck = readDeckFromUrl();
+    if(validateDeck(sharedDeck)) {
+        insertDeckIntoSlots(sharedDeck);
+    }
+    else {
+        saveDeckToUrl([]);
+    }
 }
 
 function addVideoPreviewOnHover(name, el) {
@@ -337,7 +344,38 @@ function readDeckFromUrl() {
         return [];
     }
     const decodedDeckString = window.atob(codedDeck);
-    return decodedDeckString.split(',');
+    const arr = decodedDeckString.split(',').map(s => s.replace('\n','').trim());
+    
+    
+    return arr;
+}
+
+function validateDeck(names) {
+    
+    // check for duplicates
+    const filtered = names.filter(Boolean)
+    const set = [...new Set(filtered)];
+    if(filtered.length !== set.length ) {
+        return false;
+    }
+
+    // allowed tiers
+    const tiers = [
+        [0],
+        [1],
+        [3],
+        [3, 1],
+        [0],
+        [2],
+        [4],
+        [4, 2],
+    ]
+
+    const deck = names.map(name => units.find(unit => unit.slug === name));
+    console.log({filtered, set, deck})
+    return tiers.every((tier, index) => {
+        return !deck[index] || tier.includes(deck[index].techTierId)
+    })
 }
 
 function insertDeckIntoSlots(deck) {
