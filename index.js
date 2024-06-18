@@ -2,8 +2,8 @@ var units = [];
 var tiers = [];
 var isPopoverOpen = false;
 
-fetchBuildId()
-    .then(fetchUnitsAndTiers)
+// fetchBuildId()
+fetchUnitsAndTiers('')
     .then((data) => {
         units = data.units;
         tiers = data.tiers;
@@ -97,23 +97,50 @@ function fetchBuildId() {
 }
 
 function fetchUnitsAndTiers(buildId) {
-    const units = localStorage.getItem('units');
-    const tiers = localStorage.getItem('tiers');
-    if (units && units.length > 0 && tiers && tiers.length > 0) {
-        return Promise.resolve({
-            units: JSON.parse(units),
-            tiers: JSON.parse(tiers),
-        });
-    }
-
-    return fetch(urlBuilder(buildId))
+    // const units = localStorage.getItem('units');
+    // const tiers = localStorage.getItem('tiers');
+    // if (units && units.length > 0 && tiers && tiers.length > 0) {
+    //     return Promise.resolve({
+    //         units: JSON.parse(units),
+    //         tiers: JSON.parse(tiers),
+    //     });
+    // }
+    // fetch(urlBuilder(buildId))
+    return fetch('../data/units.json')
         .then((res) => res.json())
         .then((body) => {
-            const tiers = parseTechTiers(body);
-            const units = parseAndSortUnits(body);
-            localStorage.setItem('units', JSON.stringify(units));
-            localStorage.setItem('tiers', JSON.stringify(tiers));
-            return { units, tiers };
+            // const tiers = parseTechTiers(body);
+            // const units = parseAndSortUnits(body);
+            // localStorage.setItem('units', JSON.stringify(units));
+            // localStorage.setItem('tiers', JSON.stringify(tiers));
+            
+            return { units: body, tiers: [
+                {
+                  "name": "Advanced Foundry",
+                  "slug": "advancedfoundry",
+                  "techTierId": 3
+                },
+                {
+                  "name": "Advanced Starforge",
+                  "slug": "advancedstarforge",
+                  "techTierId": 4
+                },
+                {
+                  "name": "Starforge",
+                  "slug": "starforge",
+                  "techTierId": 2
+                },
+                {
+                  "name": "Foundry",
+                  "slug": "foundry",
+                  "techTierId": 1
+                },
+                {
+                  "name": "Core",
+                  "slug": "core",
+                  "techTierId": 0
+                }
+              ] };
         });
 }
 
@@ -239,9 +266,9 @@ function createTagFilter(tags, handleChecked) {
             if(checkbox.checked) {
                 label.classList.add('checked')
             } 
-            else [
+            else {
                 label.classList.remove('checked')
-            ]
+            }
             handleChecked(tag, checkbox.checked)
         })
 

@@ -34,6 +34,7 @@
 | <img src="../images/units/heavyturret-black.png"> | Heavy Turret | Versatile Base Defense | Starforge | 4 | 5 | 4 | 0 | / | 0 | 200 | 100 |
 | <img src="../images/units/heavyballista-black.png"> | Heavy Ballista | Anti-Ground Splash Ground Unit | Advanced Foundry | 5 | 4 | 2 | 2 | / | 10 | 250 | 250 |
 | <img src="../images/units/predator-black.png"> | Predator | Anti-Air Splash Ground Unit | Advanced Foundry | 5 | 2 | 5 | 2 | / | 5 | 125 | 125 |
+| <img src="../images/units/assaultbot-black.png"> | Assaultbot | Anti-Ground Ground Unit | Advanced Foundry | 2 | 1 | 2 | 2 | Overclock | 1 | 50 | 0 |
 | <img src="../images/units/bulwark-black.png"> | Bulwark | Versatile Durable Air Unit | Advanced Starforge | 5 | 5 | 2 | 1 | / | 10 | 250 | 250 |
 | <img src="../images/units/katbus-black.png"> | Katbus | Anti-Ground Durable Air Unit | Advanced Starforge | 5 | 5 | 2 | 2 | / | 10 | 250 | 250 |
 | <img src="../images/units/locust-black.png"> | Locust | Versatile Air Unit | Advanced Starforge | 2 | 1 | 2 | 4 | / | 2 | 50 | 50 |
