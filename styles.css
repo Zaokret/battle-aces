@@ -335,3 +335,10 @@ body {
 .hide {
     display: none;
 }
+
+#selected-unit-preview {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: white;
+}

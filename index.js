@@ -264,7 +264,7 @@ function createUnitInput(unitList, callback) {
         );
         img.className = 'select-image';
         img.addEventListener('click', (event) => {
-            callback(unit.name, event);
+            callback(unit.slug, event);
         });
         addHoverEffect(img);
 
@@ -499,6 +499,26 @@ function createSelectedUnitImage(name) {
     const cardImage = createImageElement(getImageUrl(name, 'units'), name);
     cardImage.className = 'card-img';
     addHoverEffect(cardImage);
+
+    const unit = units.find(unit => unit.slug === name)
+
+    cardImage.addEventListener('mouseenter', function (event) {
+        const existing = document.getElementById('selected-unit-preview');
+        if(existing || !unit) {
+            return;
+        }
+        const preview = createUnitInput([unit], ()=> {})[0];
+        preview.id = 'selected-unit-preview'
+
+        const main = document.querySelector('main')
+        main.appendChild(preview)
+    });
+
+    cardImage.addEventListener('mouseleave', function () {
+        const preview = document.getElementById('selected-unit-preview')
+        if(preview) preview.remove();
+    });
+
     return cardImage;
 }
 
