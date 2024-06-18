@@ -58,6 +58,12 @@ const writeToFile = (data) => {
 }
 
 const parseAndSortUnits = (body) => {
+    const getTechTierNameById = (id) => {
+      const tier = body.pageProps.data.allTechTiers.find(
+          (tier) => tier.techTierId === id
+      );
+      return tier.name;
+    };
     return body.pageProps.data.allUnits.map(unit => ({
       costBandwidth: unit.costBandwidth,
       costMatter: unit.costMatter,
@@ -71,13 +77,22 @@ const parseAndSortUnits = (body) => {
       techTierId: unit.techTier.techTierId,
       unitAbility: unit.unitAbility && unit.unitAbility.name,
       unitTag: unit.unitTag,
+      unitTagArray: parseUnitTags(unit.unitTag),
       slug: unit.slug,
+      videoTurnaround: `https://cdn.playbattleaces.com/videos/turnarounds/${unit.slug}.mp4`,
+      videoGameplay: `https://cdn.playbattleaces.com/videos/gameplay/${unit.slug}.mp4`,
+      website: `https://www.playbattleaces.com/units/${unit.slug}`,
+      image: `https://cdn.playbattleaces.com/images/icons/units/${unit.slug}.png`
     })).sort((a,b)=> a.techTierId-b.techTierId)
 }
 
-const getTechTierNameById = (id) => {
-    const tiers = ['Core', 'Foundry', 'Starforge', 'Advanced Foundry', 'Advanced Starforge']
-    return tiers[id];
+function parseUnitTags(tags) {
+  return tags
+  .replace(' Unit', '')
+  .replace(' Damage', '')
+  .replace(' Defense', '-Defense')
+  .replace('\n', '')
+  .split(' ')
 }
 
 getBuildId(downloadUnits(saveUnits));

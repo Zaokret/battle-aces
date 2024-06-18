@@ -12,7 +12,12 @@
         "techTierId": 0,
         "unitAbility": null,
         "unitTag": "Anti-Ground Melee Ground Unit",
-        "slug": "crab"
+        "unitTagArray": ["Anti-Ground", "Melee", "Ground"],
+        "slug": "crab",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/crab.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/crab.mp4",
+        "website": "https://www.playbattleaces.com/units/crab",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/crab.png"
     },
     {
         "costBandwidth": 2,
@@ -27,7 +32,12 @@
         "techTierId": 0,
         "unitAbility": null,
         "unitTag": "Anti-Air Ground Unit",
-        "slug": "hunter"
+        "unitTagArray": ["Anti-Air", "Ground"],
+        "slug": "hunter",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/hunter.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/hunter.mp4",
+        "website": "https://www.playbattleaces.com/units/hunter",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/hunter.png"
     },
     {
         "costBandwidth": 2,
@@ -42,7 +52,12 @@
         "techTierId": 0,
         "unitAbility": "Recall",
         "unitTag": "Anti-Ground Ground Unit",
-        "slug": "recall"
+        "unitTagArray": ["Anti-Ground", "Ground"],
+        "slug": "recall",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/recall.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/recall.mp4",
+        "website": "https://www.playbattleaces.com/units/recall",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/recall.png"
     },
     {
         "costBandwidth": 2,
@@ -57,7 +72,12 @@
         "techTierId": 0,
         "unitAbility": "Recall",
         "unitTag": "Anti-Air Ground Unit",
-        "slug": "recallhunter"
+        "unitTagArray": ["Anti-Air", "Ground"],
+        "slug": "recallhunter",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/recallhunter.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/recallhunter.mp4",
+        "website": "https://www.playbattleaces.com/units/recallhunter",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/recallhunter.png"
     },
     {
         "costBandwidth": 1,
@@ -72,7 +92,12 @@
         "techTierId": 0,
         "unitAbility": null,
         "unitTag": "Anti-Ground Melee Ground Unit",
-        "slug": "scorpion"
+        "unitTagArray": ["Anti-Ground", "Melee", "Ground"],
+        "slug": "scorpion",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/scorpion.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/scorpion.mp4",
+        "website": "https://www.playbattleaces.com/units/scorpion",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/scorpion.png"
     },
     {
         "costBandwidth": 2,
@@ -87,7 +112,12 @@
         "techTierId": 0,
         "unitAbility": null,
         "unitTag": "Versatile Ground Unit",
-        "slug": "beetle"
+        "unitTagArray": ["Versatile", "Ground"],
+        "slug": "beetle",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/beetle.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/beetle.mp4",
+        "website": "https://www.playbattleaces.com/units/beetle",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/beetle.png"
     },
     {
         "costBandwidth": 2,
@@ -102,7 +132,12 @@
         "techTierId": 0,
         "unitAbility": "Blink",
         "unitTag": "Anti-Ground Ground Unit",
-        "slug": "blink"
+        "unitTagArray": ["Anti-Ground", "Ground"],
+        "slug": "blink",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/blink.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/blink.mp4",
+        "website": "https://www.playbattleaces.com/units/blink",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/blink.png"
     },
     {
         "costBandwidth": 2,
@@ -117,7 +152,12 @@
         "techTierId": 0,
         "unitAbility": "Blink",
         "unitTag": "Anti-Air Ground Unit",
-        "slug": "blinkhunter"
+        "unitTagArray": ["Anti-Air", "Ground"],
+        "slug": "blinkhunter",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/blinkhunter.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/blinkhunter.mp4",
+        "website": "https://www.playbattleaces.com/units/blinkhunter",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/blinkhunter.png"
     },
     {
         "costBandwidth": 1,
@@ -132,7 +172,12 @@
         "techTierId": 0,
         "unitAbility": "Overclock",
         "unitTag": "Anti-Ground Ground Unit",
-        "slug": "gunbot"
+        "unitTagArray": ["Anti-Ground", "Ground"],
+        "slug": "gunbot",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/gunbot.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/gunbot.mp4",
+        "website": "https://www.playbattleaces.com/units/gunbot",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/gunbot.png"
     },
     {
         "costBandwidth": 2,
@@ -147,7 +192,12 @@
         "techTierId": 0,
         "unitAbility": "Overclock",
         "unitTag": "Anti-Air Ground Unit",
-        "slug": "missilebot"
+        "unitTagArray": ["Anti-Air", "Ground"],
+        "slug": "missilebot",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/missilebot.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/missilebot.mp4",
+        "website": "https://www.playbattleaces.com/units/missilebot",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/missilebot.png"
     },
     {
         "costBandwidth": 1,
@@ -162,7 +212,12 @@
         "techTierId": 0,
         "unitAbility": null,
         "unitTag": "Anti-Ground Melee Ground Unit",
-        "slug": "wasp"
+        "unitTagArray": ["Anti-Ground", "Melee", "Ground"],
+        "slug": "wasp",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/wasp.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/wasp.mp4",
+        "website": "https://www.playbattleaces.com/units/wasp",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/wasp.png"
     },
     {
         "costBandwidth": 2,
@@ -177,7 +232,12 @@
         "techTierId": 0,
         "unitAbility": null,
         "unitTag": "Anti-Air Ground Unit",
-        "slug": "hornet"
+        "unitTagArray": ["Anti-Air", "Ground"],
+        "slug": "hornet",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/hornet.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/hornet.mp4",
+        "website": "https://www.playbattleaces.com/units/hornet",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/hornet.png"
     },
     {
         "costBandwidth": 5,
@@ -192,7 +252,12 @@
         "techTierId": 1,
         "unitAbility": null,
         "unitTag": "Anti-Ground Splash Ground Unit\n",
-        "slug": "ballista"
+        "unitTagArray": ["Anti-Ground", "Splash", "Ground"],
+        "slug": "ballista",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/ballista.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/ballista.mp4",
+        "website": "https://www.playbattleaces.com/units/ballista",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/ballista.png"
     },
     {
         "costBandwidth": 5,
@@ -207,7 +272,12 @@
         "techTierId": 1,
         "unitAbility": null,
         "unitTag": "Anti-Ground Durable Melee Splash Ground Unit",
-        "slug": "kingcrab"
+        "unitTagArray": ["Anti-Ground", "Durable", "Melee", "Splash", "Ground"],
+        "slug": "kingcrab",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/kingcrab.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/kingcrab.mp4",
+        "website": "https://www.playbattleaces.com/units/kingcrab",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/kingcrab.png"
     },
     {
         "costBandwidth": 5,
@@ -222,7 +292,12 @@
         "techTierId": 1,
         "unitAbility": null,
         "unitTag": "Anti-Ground Durable Melee Ground Unit",
-        "slug": "crusader"
+        "unitTagArray": ["Anti-Ground", "Durable", "Melee", "Ground"],
+        "slug": "crusader",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/crusader.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/crusader.mp4",
+        "website": "https://www.playbattleaces.com/units/crusader",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/crusader.png"
     },
     {
         "costBandwidth": 2,
@@ -237,7 +312,12 @@
         "techTierId": 1,
         "unitAbility": null,
         "unitTag": "Anti-Ground Disposable Splash Ground Unit",
-        "slug": "bomber"
+        "unitTagArray": ["Anti-Ground", "Disposable", "Splash", "Ground"],
+        "slug": "bomber",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/bomber.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/bomber.mp4",
+        "website": "https://www.playbattleaces.com/units/bomber",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/bomber.png"
     },
     {
         "costBandwidth": 5,
@@ -252,7 +332,12 @@
         "techTierId": 1,
         "unitAbility": null,
         "unitTag": "Anti-Ground Splash Ground Unit",
-        "slug": "shocker"
+        "unitTagArray": ["Anti-Ground", "Splash", "Ground"],
+        "slug": "shocker",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/shocker.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/shocker.mp4",
+        "website": "https://www.playbattleaces.com/units/shocker",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/shocker.png"
     },
     {
         "costBandwidth": 5,
@@ -267,7 +352,12 @@
         "techTierId": 1,
         "unitAbility": "Recall",
         "unitTag": "Anti-Ground Splash Ground Unit",
-        "slug": "recallshocker"
+        "unitTagArray": ["Anti-Ground", "Splash", "Ground"],
+        "slug": "recallshocker",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/recallshocker.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/recallshocker.mp4",
+        "website": "https://www.playbattleaces.com/units/recallshocker",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/recallshocker.png"
     },
     {
         "costBandwidth": 5,
@@ -282,7 +372,12 @@
         "techTierId": 1,
         "unitAbility": "Setup",
         "unitTag": "Anti-Ground Splash Ground Unit",
-        "slug": "mortar"
+        "unitTagArray": ["Anti-Ground", "Splash", "Ground"],
+        "slug": "mortar",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/mortar.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/mortar.mp4",
+        "website": "https://www.playbattleaces.com/units/mortar",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/mortar.png"
     },
     {
         "costBandwidth": 5,
@@ -297,7 +392,12 @@
         "techTierId": 1,
         "unitAbility": null,
         "unitTag": "Anti-Ground Splash Ground Unit",
-        "slug": "swiftshocker"
+        "unitTagArray": ["Anti-Ground", "Splash", "Ground"],
+        "slug": "swiftshocker",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/swiftshocker.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/swiftshocker.mp4",
+        "website": "https://www.playbattleaces.com/units/swiftshocker",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/swiftshocker.png"
     },
     {
         "costBandwidth": 5,
@@ -312,7 +412,12 @@
         "techTierId": 1,
         "unitAbility": null,
         "unitTag": "Anti-Air Ground Unit",
-        "slug": "heavyhunter"
+        "unitTagArray": ["Anti-Air", "Ground"],
+        "slug": "heavyhunter",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/heavyhunter.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/heavyhunter.mp4",
+        "website": "https://www.playbattleaces.com/units/heavyhunter",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/heavyhunter.png"
     },
     {
         "costBandwidth": 5,
@@ -327,7 +432,12 @@
         "techTierId": 1,
         "unitAbility": null,
         "unitTag": "Anti-Ground Burst Damage Ground Unit",
-        "slug": "destroyer"
+        "unitTagArray": ["Anti-Ground", "Burst", "Ground"],
+        "slug": "destroyer",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/destroyer.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/destroyer.mp4",
+        "website": "https://www.playbattleaces.com/units/destroyer",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/destroyer.png"
     },
     {
         "costBandwidth": 5,
@@ -342,7 +452,12 @@
         "techTierId": 1,
         "unitAbility": null,
         "unitTag": "Anti-Worker Ground Unit",
-        "slug": "raider"
+        "unitTagArray": ["Anti-Worker", "Ground"],
+        "slug": "raider",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/raider.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/raider.mp4",
+        "website": "https://www.playbattleaces.com/units/raider",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/raider.png"
     },
     {
         "costBandwidth": 0,
@@ -357,7 +472,12 @@
         "techTierId": 1,
         "unitAbility": null,
         "unitTag": "Versatile Base Defense",
-        "slug": "turret"
+        "unitTagArray": ["Versatile", "Base-Defense"],
+        "slug": "turret",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/turret.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/turret.mp4",
+        "website": "https://www.playbattleaces.com/units/turret",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/turret.png"
     },
     {
         "costBandwidth": 5,
@@ -372,7 +492,12 @@
         "techTierId": 2,
         "unitAbility": null,
         "unitTag": "Anti-Ground Air Unit",
-        "slug": "butterfly"
+        "unitTagArray": ["Anti-Ground", "Air"],
+        "slug": "butterfly",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/butterfly.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/butterfly.mp4",
+        "website": "https://www.playbattleaces.com/units/butterfly",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/butterfly.png"
     },
     {
         "costBandwidth": 5,
@@ -387,7 +512,12 @@
         "techTierId": 2,
         "unitAbility": null,
         "unitTag": "Versatile Air Unit",
-        "slug": "dragonfly"
+        "unitTagArray": ["Versatile", "Air"],
+        "slug": "dragonfly",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/dragonfly.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/dragonfly.mp4",
+        "website": "https://www.playbattleaces.com/units/dragonfly",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/dragonfly.png"
     },
     {
         "costBandwidth": 5,
@@ -402,7 +532,12 @@
         "techTierId": 2,
         "unitAbility": null,
         "unitTag": "Anti-Ground Air Unit",
-        "slug": "falcon"
+        "unitTagArray": ["Anti-Ground", "Air"],
+        "slug": "falcon",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/falcon.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/falcon.mp4",
+        "website": "https://www.playbattleaces.com/units/falcon",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/falcon.png"
     },
     {
         "costBandwidth": 5,
@@ -417,7 +552,12 @@
         "techTierId": 2,
         "unitAbility": null,
         "unitTag": "Anti-Air Air Unit",
-        "slug": "airship"
+        "unitTagArray": ["Anti-Air", "Air"],
+        "slug": "airship",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/airship.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/airship.mp4",
+        "website": "https://www.playbattleaces.com/units/airship",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/airship.png"
     },
     {
         "costBandwidth": 2,
@@ -432,7 +572,32 @@
         "techTierId": 2,
         "unitAbility": "Recall",
         "unitTag": "Anti-Ground Ground Unit",
-        "slug": "advancedrecall"
+        "unitTagArray": ["Anti-Ground", "Ground"],
+        "slug": "advancedrecall",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/advancedrecall.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/advancedrecall.mp4",
+        "website": "https://www.playbattleaces.com/units/advancedrecall",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/advancedrecall.png"
+    },
+    {
+        "costBandwidth": 5,
+        "costMatter": 125,
+        "costEnergy": 125,
+        "name": "Mammoth",
+        "statDamage": 3,
+        "statHealth": 5,
+        "statRange": 2,
+        "statSpeed": 3,
+        "techTier": "Starforge",
+        "techTierId": 2,
+        "unitAbility": null,
+        "unitTag": "Anti-Ground Durable Ground Unit",
+        "unitTagArray": ["Anti-Ground", "Durable", "Ground"],
+        "slug": "mammoth",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/mammoth.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/mammoth.mp4",
+        "website": "https://www.playbattleaces.com/units/mammoth",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/mammoth.png"
     },
     {
         "costBandwidth": 5,
@@ -447,7 +612,12 @@
         "techTierId": 2,
         "unitAbility": null,
         "unitTag": "Anti-Ground Fast Ground Unit",
-        "slug": "stinger"
+        "unitTagArray": ["Anti-Ground", "Fast", "Ground"],
+        "slug": "stinger",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/stinger.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/stinger.mp4",
+        "website": "https://www.playbattleaces.com/units/stinger",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/stinger.png"
     },
     {
         "costBandwidth": 0,
@@ -462,7 +632,12 @@
         "techTierId": 2,
         "unitAbility": null,
         "unitTag": "Versatile Base Defense",
-        "slug": "heavyturret"
+        "unitTagArray": ["Versatile", "Base-Defense"],
+        "slug": "heavyturret",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/heavyturret.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/heavyturret.mp4",
+        "website": "https://www.playbattleaces.com/units/heavyturret",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/heavyturret.png"
     },
     {
         "costBandwidth": 10,
@@ -477,7 +652,12 @@
         "techTierId": 3,
         "unitAbility": null,
         "unitTag": "Anti-Ground Splash Ground Unit",
-        "slug": "heavyballista"
+        "unitTagArray": ["Anti-Ground", "Splash", "Ground"],
+        "slug": "heavyballista",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/heavyballista.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/heavyballista.mp4",
+        "website": "https://www.playbattleaces.com/units/heavyballista",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/heavyballista.png"
     },
     {
         "costBandwidth": 5,
@@ -492,7 +672,12 @@
         "techTierId": 3,
         "unitAbility": null,
         "unitTag": "Anti-Air Splash Ground Unit",
-        "slug": "predator"
+        "unitTagArray": ["Anti-Air", "Splash", "Ground"],
+        "slug": "predator",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/predator.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/predator.mp4",
+        "website": "https://www.playbattleaces.com/units/predator",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/predator.png"
     },
     {
         "costBandwidth": 10,
@@ -507,7 +692,12 @@
         "techTierId": 4,
         "unitAbility": null,
         "unitTag": "Versatile Durable Air Unit",
-        "slug": "bulwark"
+        "unitTagArray": ["Versatile", "Durable", "Air"],
+        "slug": "bulwark",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/bulwark.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/bulwark.mp4",
+        "website": "https://www.playbattleaces.com/units/bulwark",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/bulwark.png"
     },
     {
         "costBandwidth": 10,
@@ -522,7 +712,12 @@
         "techTierId": 4,
         "unitAbility": null,
         "unitTag": "Anti-Ground Durable Air Unit",
-        "slug": "katbus"
+        "unitTagArray": ["Anti-Ground", "Durable", "Air"],
+        "slug": "katbus",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/katbus.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/katbus.mp4",
+        "website": "https://www.playbattleaces.com/units/katbus",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/katbus.png"
     },
     {
         "costBandwidth": 2,
@@ -537,7 +732,12 @@
         "techTierId": 4,
         "unitAbility": null,
         "unitTag": "Versatile Air Unit",
-        "slug": "locust"
+        "unitTagArray": ["Versatile", "Air"],
+        "slug": "locust",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/locust.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/locust.mp4",
+        "website": "https://www.playbattleaces.com/units/locust",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/locust.png"
     },
     {
         "costBandwidth": 5,
@@ -552,6 +752,11 @@
         "techTierId": 4,
         "unitAbility": null,
         "unitTag": "Anti-Air Air Unit",
-        "slug": "valkyrie"
+        "unitTagArray": ["Anti-Air", "Air"],
+        "slug": "valkyrie",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/valkyrie.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/valkyrie.mp4",
+        "website": "https://www.playbattleaces.com/units/valkyrie",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/valkyrie.png"
     }
 ]
