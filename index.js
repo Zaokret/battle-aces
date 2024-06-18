@@ -204,12 +204,59 @@ function addHoverEffect(el) {
     });
 }
 
-function createUnitInputs(unitList, callback) {
-    const list = document.createElement('div');
-    list.className = 'card-list';
-    for (const unit of unitList) {
-        const div = document.createElement('div');
+function getUniqTagsFromUnits(unitList) {
+    const allTags = unitList.reduce((tags, unit) => {
+        tags = tags.concat(parseUnitTags(unit.unitTag))
+        return tags;
+    }, [])
 
+    const set = [...new Set(allTags)];
+
+    return set;
+}
+
+function createTagFilter(tags, handleChecked) {
+    const filter = document.createElement('div')
+    filter.className = 'tag-filter'
+    const sortedTags = tags.sort();
+    sortedTags.forEach(tag=>{
+        const inputWrapper = document.createElement('div');
+        inputWrapper.className = 'tag-input-wrapper'
+
+        const checkbox = document.createElement('input')
+        checkbox.className = 'tag-input'
+        checkbox.type = 'checkbox';
+        checkbox.id = tag;
+        checkbox.value = tag
+
+        const label = document.createElement('label');
+        label.className = 'tag-input-label'
+        label.setAttribute('for', tag);
+        label.innerText = tag;
+        label.style.userSelect = 'none'
+
+        checkbox.addEventListener('input', () => {
+            if(checkbox.checked) {
+                label.classList.add('checked')
+            } 
+            else [
+                label.classList.remove('checked')
+            ]
+            handleChecked(tag, checkbox.checked)
+        })
+
+        inputWrapper.appendChild(checkbox)
+        inputWrapper.appendChild(label)
+
+        filter.appendChild(inputWrapper)
+    })
+    return filter;
+}
+
+function createUnitInput(unitList, callback) {
+    return unitList.map(unit => {
+        const div = document.createElement('div');
+        div.id = `unit-input-${unit.slug}`
         const img = createImageElement(
             getImageUrl(unit.name, 'units'),
             unit.id
@@ -240,8 +287,35 @@ function createUnitInputs(unitList, callback) {
 
         // addVideoPreviewOnHover(unit.name, div)
 
-        list.appendChild(div);
+        return div;
+    })
     }
+
+function createUnitInputs(unitList, callback) {
+    const list = document.createElement('div');
+    list.className = 'card-list';
+    const filter = createTagFilter(getUniqTagsFromUnits(unitList), (tag,checked) => {
+
+        const checkboxes = Array.from(document.getElementsByClassName('tag-input'))
+        const tags = checkboxes.filter(box => box.checked).map(box=>box.value);
+        unitList.forEach(unit => {
+            const unitTags = parseUnitTags(unit.unitTag)
+            const included = tags.every(tag => {
+                if(tag === 'Anti-Air') {
+                    return ['Anti-Air', 'Versatile'].some(t => unitTags.some(ut => t === ut))
+                }
+                if(tag === 'Anti-Ground') {
+                    return ['Anti-Ground', 'Versatile'].some(t => unitTags.some(ut => t === ut))
+                }
+                return unitTags.some(ut => tag === ut)
+            })
+            const el = document.getElementById(`unit-input-${unit.slug}`)
+            included ? el.classList.remove('hide') : el.classList.add('hide');
+        })
+
+    });
+    list.appendChild(filter)
+    list.append(...createUnitInput(unitList, callback));
     return list;
 }
 
@@ -253,7 +327,12 @@ function minHeight(unitList) {
 }
 
 function parseUnitTags(tags) {
-    return tags.replace(' Unit', '').split(' ')
+    return tags
+    .replace(' Unit', '')
+    .replace(' Damage', '')
+    .replace(' Defense', '-Defense')
+    .replace('\n', '')
+    .split(' ')
 }
 
 function createUnitDescription(unit, minHeight) {
@@ -399,7 +478,6 @@ function validateDeck(names) {
     ]
 
     const deck = names.map(name => units.find(unit => unit.slug === name));
-    console.log({filtered, set, deck})
     return tiers.every((tier, index) => {
         return !deck[index] || tier.includes(deck[index].techTierId)
     })
