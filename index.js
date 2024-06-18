@@ -151,9 +151,10 @@ function setupCards() {
             if (filteredUnits.length === 0) {
                 unitInput.innerHTML = `Every unit from ${getTierNamesByIds(tierIds).join(' and ')} already selected.`;
             } else {
+                resetAnimation();
                 const list = createUnitInputs(filteredUnits, (name, _) => {
                     card.innerHTML = '';
-
+                    
                     const img = createSelectedUnitImage(name);
 
                     card.appendChild(img);
