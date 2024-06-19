@@ -106,7 +106,12 @@ function fetchUnitsAndTiers(buildId) {
     //     });
     // }
     // fetch(urlBuilder(buildId))
-    const url = 'https://155.138.174.2/data'
+    const url =
+        window.location.protocol +
+        '//' +
+        window.location.host +
+        window.location.pathname +
+        'data/units.json';
     return fetch(url)
         .then((res) => res.json())
         .then((body) => {
