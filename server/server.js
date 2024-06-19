@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var cors = require('cors');
-var fetch = require('fetch');
+var fetch = require('node-fetch');
 
 var corsOptions = {
     origin: 'https://zaokret.github.io',
