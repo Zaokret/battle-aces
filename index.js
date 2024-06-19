@@ -35,66 +35,6 @@ unitInput.addEventListener('toggle', (event) => {
     }
 });
 
-function extractBuildId(text) {
-    const regex = /"buildId":\s*"(.*?)"/;
-    const match = text.match(regex);
-    return match ? match[1] : null;
-}
-
-function urlBuilder(buildId) {
-    return `https://www.playbattleaces.com/_next/data/${buildId}/en-US/units.json`;
-}
-
-function parseAndSortUnits(body) {
-    const getTechTierNameById = (id) => {
-        const tier = body.pageProps.data.allTechTiers.find(
-            (tier) => tier.techTierId === id
-        );
-        return tier.name;
-    };
-
-    return body.pageProps.data.allUnits
-        .map((unit) => ({
-            id: unit.id,
-            costBandwidth: unit.costBandwidth,
-            costMatter: unit.costMatter,
-            costEnergy: unit.costEnergy,
-            name: unit.name,
-            statDamage: unit.statDamage,
-            statHealth: unit.statHealth,
-            statRange: unit.statRange,
-            statSpeed: unit.statSpeed,
-            techTier: getTechTierNameById(unit.techTier.techTierId),
-            techTierId: unit.techTier.techTierId,
-            unitAbility: unit.unitAbility && unit.unitAbility.name,
-            unitTag: unit.unitTag,
-            slug: unit.slug,
-        }))
-        .sort((a, b) => a.techTierId - b.techTierId);
-}
-
-function parseTechTiers(body) {
-    return body.pageProps.data.allTechTiers.map((tier) => ({
-        name: tier.name,
-        slug: tier.slug,
-        techTierId: tier.techTierId,
-    }));
-}
-
-function fetchBuildId() {
-    return fetch(`https://www.playbattleaces.com/units`)
-        .then((res) => res.text())
-        .then(extractBuildId)
-        .then((id) => {
-            const buildId = localStorage.getItem('buildId');
-            if (id !== buildId) {
-                localStorage.clear();
-                localStorage.setItem('buildId', id);
-            }
-            return id;
-        });
-}
-
 function fetchUnitsAndTiers() {
     const url = 'https://deckbuilder.autos/data';
     return fetch(url)
