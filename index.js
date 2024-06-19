@@ -106,12 +106,7 @@ function fetchUnitsAndTiers(buildId) {
     //     });
     // }
     // fetch(urlBuilder(buildId))
-    const url =
-        window.location.protocol +
-        '//' +
-        window.location.host +
-        window.location.pathname +
-        'data/units.json';
+    const url = 'https://deckbuilder.autos/data';
     return fetch(url)
         .then((res) => res.json())
         .then((body) => {
