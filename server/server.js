@@ -14,7 +14,6 @@ app.get('/data', function (req, res) {
         res.json(data);
     })
 });
-
 var port = 3000;
 app.listen(port, function () {
     console.log(`Battle Aces Proxy Server listening on port ${port}.`);
