@@ -700,6 +700,26 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/assaultbot.png"
     },
     {
+        "costBandwidth": 5,
+        "costMatter": 250,
+        "costEnergy": 0,
+        "name": "Behemoth",
+        "statDamage": 4,
+        "statHealth": 5,
+        "statRange": 2,
+        "statSpeed": 3,
+        "techTier": "Advanced Foundry",
+        "techTierId": 3,
+        "unitAbility": null,
+        "unitTag": "Anti-Ground Durable Ground Unit",
+        "unitTagArray": ["Anti-Ground", "Durable", "Ground"],
+        "slug": "behemoth",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/behemoth.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/behemoth.mp4",
+        "website": "https://www.playbattleaces.com/units/behemoth",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/behemoth.png"
+    },
+    {
         "costBandwidth": 10,
         "costMatter": 250,
         "costEnergy": 250,
