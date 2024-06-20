@@ -2,7 +2,11 @@ var express = require('express');
 var app = express();
 var cors = require('cors');
 var fetch = require('node-fetch');
+var fs = require('fs');
+var path = require('path')
 
+var buildId = '';
+var filePath = path.join(__dirname, 'data.json');
 var corsOptions = {
     origin: 'https://zaokret.github.io',
     optionsSuccessStatus: 200 
@@ -24,13 +28,25 @@ function fetchData() {
     return fetch(`https://www.playbattleaces.com/units`)
         .then((res) => res.text())
         .then(extractBuildId)
-        .then(urlBuilder)
-        .then((url) => fetch(url))
-        .then((res) => res.json())
-        .then((body) => ({
-            tiers: parseTechTiers(body),
-            units: parseAndSortUnits(body),
-        }));
+        .then((id) => {
+            if(buildId !== id) {
+                buildId = id;
+                return fetch(urlBuilder(id))
+                .then(res => res.json())
+                .then(body => {
+                    const model = {
+                        tiers: parseTechTiers(body),
+                        units: parseAndSortUnits(body),
+                    }
+                    fs.writeFile(filePath, JSON.stringify(model), (err) => console.error(err))
+                    return model;
+                })
+            }
+            else {
+                const str = fs.readFileSync(filePath);
+                return JSON.parse(str)
+            }
+        })
 }
 
 function urlBuilder(buildId) {
