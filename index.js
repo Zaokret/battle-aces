@@ -37,6 +37,7 @@ unitInput.addEventListener('toggle', (event) => {
 
 function fetchUnitsAndTiers() {
     const url = 'https://deckbuilder.autos/data';
+    const devUrl = 'http://localhost:3000/data';
     return fetch(url)
         .then((res) => res.json())
 }
@@ -129,7 +130,7 @@ function addHoverEffect(el) {
 
 function getUniqTagsFromUnits(unitList) {
     const allTags = unitList.reduce((tags, unit) => {
-        tags = tags.concat(parseUnitTags(unit.unitTag));
+        tags = tags.concat(parseUnitTags(unit));
         return tags;
     }, []);
 
@@ -225,7 +226,7 @@ function createUnitInputs(unitList, callback) {
                 .filter((box) => box.checked)
                 .map((box) => box.value);
             unitList.forEach((unit) => {
-                const unitTags = parseUnitTags(unit.unitTag);
+                const unitTags = parseUnitTags(unit);
                 const included = tags.every((tag) => {
                     if (tag === 'Anti-Air') {
                         return ['Anti-Air', 'Versatile'].some((t) =>
@@ -253,22 +254,23 @@ function createUnitInputs(unitList, callback) {
 
 function minHeight(unitList) {
     const highest = unitList
-        .map((unit) => parseUnitTags(unit.unitTag).length)
+        .map((unit) => parseUnitTags(unit).length)
         .sort((a, b) => b - a)[0];
     return highest * 30;
 }
 
-function parseUnitTags(tags) {
-    return tags
+function parseUnitTags(unit) {
+    return unit.unitTag
         .replace(' Unit', '')
         .replace(' Damage', '')
         .replace(' Defense', '-Defense')
         .replace('\n', '')
-        .split(' ');
+        .split(' ')
+        .concat(unit.unitAbility ? unit.unitAbility : [])
 }
 
 function createUnitDescription(unit, minHeight) {
-    const tags = parseUnitTags(unit.unitTag);
+    const tags = parseUnitTags(unit);
     const desc = document.createElement('div');
     desc.className = 'tag-list';
     desc.style.minHeight = minHeight + 'px';
