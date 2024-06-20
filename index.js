@@ -28,17 +28,22 @@ function resetAnimation() {
     el.innerHTML = '';
 }
 
+function removeInProgress() {
+    Array.from(cards).forEach(card => card.classList.remove('selection-in-progress'))
+}
+
 unitInput.addEventListener('toggle', (event) => {
     isPopoverOpen = event.newState === 'open';
     if (event.newState === 'closed') {
         unitInput.innerHTML = '';
+        removeInProgress();
     }
 });
 
 function fetchUnitsAndTiers() {
     const url = 'https://deckbuilder.autos/data';
     const devUrl = 'http://localhost:3000/data';
-    return fetch(url)
+    return fetch(devUrl)
         .then((res) => res.json())
 }
 
@@ -54,8 +59,9 @@ function setupCards() {
                     return;
                 }
             }
-
+            
             unitInput.innerHTML = '';
+            removeInProgress();
 
             const tierClasses = card.className
                 .split(' ')
@@ -86,7 +92,8 @@ function setupCards() {
                     unitInput.hidePopover();
                     saveDeckToUrl(getSelectedUnitSlugs());
                 });
-                list.id = card.id;
+                list.classList.add(card.id);
+                card.classList.add('selection-in-progress');
                 unitInput.appendChild(list);
             }
 

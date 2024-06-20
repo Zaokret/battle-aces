@@ -68,68 +68,16 @@ main {
     border: 1px solid grey;
 }
 
-.rotate45 {
-    transform: rotate(45deg);
+.selection-in-progress,
+.selection-in-progress > img {
+    background: rgb(95, 95, 95) !important;
 }
 
 .row > .black-background {
     background: black;
 }
 
-.core-line {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    width: 100%;
-    height: 60px;
-    background: rgb(0, 132, 86);
-}
 
-.t1-line {
-    position: absolute;
-    left: 0;
-    transform: translateY(-50%);
-    width: 100%;
-    height: 40px;
-    background: rgb(77, 77, 187);
-}
-.t1-line.top {
-    top: 38%;
-}
-.t1-line.bottom {
-    bottom: 33%;
-}
-
-.t2-line {
-    position: absolute;
-    left: 0;
-    transform: translateY(-50%);
-    width: 100%;
-    height: 30px;
-    background: rgb(247, 255, 21);
-}
-.t2-line.top {
-    top: 26%;
-}
-.t2-line.bottom {
-    bottom: 22%;
-}
-
-.t3-line {
-    position: absolute;
-    left: 0;
-    transform: translateY(-50%);
-    width: 100%;
-    height: 10px;
-    background: rgb(255, 21, 21);
-}
-.t3-line.top {
-    top: 13%;
-}
-.t3-line.bottom {
-    bottom: 12%;
-}
 h1 {
     color: white;
     font-weight: bold;
