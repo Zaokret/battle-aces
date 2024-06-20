@@ -226,7 +226,8 @@ h1 {
 .select-image,
 .unit-out-link,
 .tag-input,
-.tag-input-label {
+.tag-input-label,
+.card {
     cursor: pointer;
 }
 
