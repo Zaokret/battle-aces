@@ -43,7 +43,7 @@ unitInput.addEventListener('toggle', (event) => {
 function fetchUnitsAndTiers() {
     const url = 'https://deckbuilder.autos/data';
     const devUrl = 'http://localhost:3000/data';
-    return fetch(devUrl)
+    return fetch(url)
         .then((res) => res.json())
 }
 
