@@ -271,6 +271,7 @@ function parseUnitTags(unit) {
         .replace(' Unit', '')
         .replace(' Damage', '')
         .replace(' Defense', '-Defense')
+        .replace(' Range', '-Range')
         .replace('\n', '')
         .split(' ')
         .concat(unit.unitAbility ? unit.unitAbility : [])
