@@ -9,7 +9,9 @@
   "main": "",
   "scripts": {
     "scrape": "node units.js && node download-images.js && node png-to-jpg.js && node json-to-md.js",
-    "lint": "prettier ./data/units.json --write"
+    "lint": "prettier ./data/units.json --write",
+    "server:dev": "npm run dev --prefix server",
+    "server:prod": "npm run prod --prefix server"
   },
   "author": "",
   "license": "MIT",

@@ -4,12 +4,13 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "dev": "dotenvx run -f .env.dev -- node server.js",
+    "prod": "dotenvx run -f .env.prod -- node server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@dotenvx/dotenvx": "^0.45.0",
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "node-fetch": "^2.7.0"

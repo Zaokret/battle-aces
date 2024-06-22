@@ -4,11 +4,16 @@ var cors = require('cors');
 var fetch = require('node-fetch');
 var fs = require('fs');
 var path = require('path')
+require('@dotenvx/dotenvx').config()
+
+function isProd() {
+    return process.env.STATUS === 'production';
+}
 
 var buildId = '';
 var filePath = path.join(__dirname, 'data.json');
 var corsOptions = {
-    origin: 'https://zaokret.github.io',
+    origin: isProd() ? 'https://zaokret.github.io' : '*',
     optionsSuccessStatus: 200 
   }
 
@@ -19,9 +24,9 @@ app.get('/data', function (req, res) {
         res.json(data);
     })
 });
-var port = 3000;
-app.listen(port, function () {
-    console.log(`Battle Aces Proxy Server listening on port ${port}.`);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, function () {
+    console.log(`Battle Aces Proxy Server listening on port ${PORT} in ${process.env.STATUS} mode.`);
 });
 
 function fetchData() {
