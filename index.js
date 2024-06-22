@@ -40,10 +40,17 @@ unitInput.addEventListener('toggle', (event) => {
     }
 });
 
+function getBackendUrl() {
+    if(window.location.hostname.includes('github')) {
+        return 'https://deckbuilder.autos/data'
+    }
+    return 'http://localhost:3000/data'
+}
+
+getBackendUrl()
+
 function fetchUnitsAndTiers() {
-    const url = 'https://deckbuilder.autos/data';
-    const devUrl = 'http://localhost:3000/data';
-    return fetch(url)
+    return fetch(getBackendUrl())
         .then((res) => res.json())
 }
 
