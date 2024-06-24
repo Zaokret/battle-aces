@@ -6,6 +6,7 @@ var fs = require('fs');
 var path = require('path')
 require('@dotenvx/dotenvx').config()
 
+
 function isProd() {
     return process.env.STATUS === 'production';
 }
@@ -24,6 +25,59 @@ app.get('/data', function (req, res) {
         res.json(data);
     })
 });
+
+app.get('/callback', async function (req, res) {
+    console.log(req.query)
+
+    const params = new URLSearchParams({
+        client_id: process.env.DISCORD_CLIENT_ID,
+        client_secret: process.env.DISCORD_CLIENT_SECRET,
+        grant_type: 'authorization_code',
+        code: req.query.code,
+        redirect_uri: process.env.DISCORD_REDIRECT_URI
+      });
+    
+      const headers = {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Accept-Encoding': 'application/x-www-form-urlencoded'
+      };
+
+      const tokenRes = await fetch('https://discord.com/api/oauth2/token', { method: 'POST', body: params, headers: headers });
+      const token = await tokenRes.json();
+
+      const userResponse = await fetch('https://discord.com/api/users/@me', {
+        headers: {
+          Authorization: `Bearer ${token.access_token}`,
+          ...headers
+        }
+      })
+      
+    const user = await userResponse.json();
+    res.json(user);
+});
+
+// app.get('/revoke', async (req,res) => {
+    
+//     const params = new URLSearchParams({
+//         client_id: process.env.DISCORD_CLIENT_ID,
+//         client_secret: process.env.DISCORD_CLIENT_SECRET,
+//         token: access_token, // GET THIS FROM JWT 
+//         token_type_hint: 'access_token' || 'refresh_token' // GET THIS FROM JWT 
+//       });
+    
+//       const headers = {
+//         'Content-Type': 'application/x-www-form-urlencoded',
+//       };
+
+//       const tokenRes = await fetch('https://discord.com/api/oauth2/token/revoke', { method: 'POST', body: params, headers: headers });
+//       const token = await tokenRes.json();
+// })
+
+// local
+// https://discord.com/oauth2/authorize?client_id=1056528749333594194&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fcallback&scope=identify
+// prod
+// https://discord.com/oauth2/authorize?client_id=1056528749333594194&response_type=code&redirect_uri=https%3A%2F%2Fdeckbuilder.autos%2Fcallback&scope=identify
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, function () {
     console.log(`Battle Aces Proxy Server listening on port ${PORT} in ${process.env.STATUS} mode.`);
@@ -53,7 +107,6 @@ function fetchData() {
             }
         })
 }
-
 function urlBuilder(buildId) {
     return `https://www.playbattleaces.com/_next/data/${buildId}/en-US/units.json`;
 }
