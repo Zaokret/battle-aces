@@ -29,7 +29,9 @@ function resetAnimation() {
 }
 
 function removeInProgress() {
-    Array.from(cards).forEach(card => card.classList.remove('selection-in-progress'))
+    Array.from(cards).forEach((card) =>
+        card.classList.remove('selection-in-progress')
+    );
 }
 
 unitInput.addEventListener('toggle', (event) => {
@@ -41,17 +43,16 @@ unitInput.addEventListener('toggle', (event) => {
 });
 
 function getBackendUrl() {
-    if(window.location.hostname.includes('github')) {
-        return 'https://deckbuilder.autos/data'
+    if (window.location.hostname.includes('github')) {
+        return 'https://deckbuilder.autos/data';
     }
-    return 'http://localhost:3000/data'
+    return 'http://localhost:3000/data';
 }
 
-getBackendUrl()
+getBackendUrl();
 
 function fetchUnitsAndTiers() {
-    return fetch(getBackendUrl())
-        .then((res) => res.json())
+    return fetch(getBackendUrl()).then((res) => res.json());
 }
 
 function setupCards() {
@@ -66,7 +67,7 @@ function setupCards() {
                     return;
                 }
             }
-            
+
             unitInput.innerHTML = '';
             removeInProgress();
 
@@ -281,7 +282,7 @@ function parseUnitTags(unit) {
         .replace(' Range', '-Range')
         .replace('\n', '')
         .split(' ')
-        .concat(unit.unitAbility ? unit.unitAbility : [])
+        .concat(unit.unitAbility ? unit.unitAbility : []);
 }
 
 function createUnitDescription(unit, minHeight) {
@@ -416,7 +417,7 @@ function validateDeck(names) {
 
     // allowed tiers
     const tiers = [
-        [0], [1], [3], [3, 1], 
+        [0], [1], [3], [3, 1],
         [0], [2], [4], [4, 2]
     ];
 
@@ -550,4 +551,54 @@ function removeVideo() {
         video.innerHTML = '';
     }
 }
+
+const capture = () => {
+    const canvas = document.createElement('canvas');
+    const downloadLink = document.createElement("a");
+    downloadLink.download = getSelectedUnitSlugs().map(slug => slug ? units.find(unit => unit.slug === slug).name : 'Empty')
+
+    const el = document.getElementById('video');
+
+    let rect = el.getBoundingClientRect()
+
+    navigator.mediaDevices
+        .getDisplayMedia({
+            selfBrowserSurface: 'include',
+        })
+        .then((stream) => {
+
+            const track = stream.getVideoTracks()[0];
+            const imageCapture = new ImageCapture(track);
+            
+            imageCapture.grabFrame().then((bitmap) => {
+                track.stop();
+                
+                canvas.width = bitmap.width;
+                canvas.height = bitmap.height;
+                const context = canvas.getContext('2d');
+                context.drawImage(bitmap, 0, 0, bitmap.width, bitmap.height)
+                // context.drawImage(bitmap, rect.x, rect.y, rect.width, rect.height, 0, 0, rect.width, rect.height);
+                const image = canvas.toDataURL();
+
+                
+                downloadLink.href = image;
+                console.log(image)
+                downloadLink.click();
+            });
+        });
+};
+
+const screenshot = document.getElementById('screenshot');
+if(
+    'mediaDevices' in navigator && 
+    'getDisplayMedia' in navigator.mediaDevices && 
+    'ImageCapture' in window
+) {
+    screenshot.addEventListener('click', () => {
+        capture();
+    });
+} else {
+    screenshot.remove();
+}
+
 
