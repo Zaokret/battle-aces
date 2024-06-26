@@ -1,0 +1,37 @@
+# Uncapped client user configuration
+
+
+[account]
+PlayIntroCinematic = false
+menuuistates = "{\"States\":[]}"
+PlayerXP = 0
+cosmetics = "{\"_savedItems\":[{\"Slot\":{\"_id\":5},\"Item\":{\"_id\":21}}]}"
+decks = "{\"SelectedDeck\":{\"_name\":\"SelectedDeck\",\"_units\":[{\"_id\":75},{\"_id\":74},{\"_id\":76},{\"_id\":73},{\"_id\":0},{\"_id\":0},{\"_id\":80},{\"_id\":72}],\"_activeAbilities\":[{\"_id\":0},{\"_id\":0},{\"_id\":0},{\"_id\":0}]},\"Decks\":[{\"_name\":\"\",\"_units\":[{\"_id\":75},{\"_id\":74},{\"_id\":76},{\"_id\":73},{\"_id\":0},{\"_id\":0},{\"_id\":80},{\"_id\":72}],\"_activeAbilities\":[{\"_id\":0},{\"_id\":0},{\"_id\":0},{\"_id\":0}]},{\"_name\":\"\",\"_units\":[{\"_id\":75},{\"_id\":74},{\"_id\":76},{\"_id\":73},{\"_id\":0},{\"_id\":0},{\"_id\":80},{\"_id\":72}],\"_activeAbilities\":[{\"_id\":0},{\"_id\":0},{\"_id\":0},{\"_id\":0}]},{\"_name\":\"\",\"_units\":[{\"_id\":75},{\"_id\":74},{\"_id\":76},{\"_id\":73},{\"_id\":0},{\"_id\":0},{\"_id\":80},{\"_id\":72}],\"_activeAbilities\":[{\"_id\":0},{\"_id\":0},{\"_id\":0},{\"_id\":0}]}]}"
+
+[options]
+AutoDetectGraphicsQuality = false
+GraphicQuality = 1
+LevelOfDetail = 1
+AntiAliasingMethod = 3
+VSyncEnabled = true
+ScreenPercentage = 100
+UpScalingMethod = 3
+TextureQuality = 1
+ShadowQuality = 1
+ShaderQuality = 2
+FogOfWarQuality = 1
+MasterVolume = -5.32307147979736
+DialogueVolume = 0
+SFXVolume = -3.84685754776001
+MusicVolume = -8.96335124969482
+IngameMusicPlaylist = []
+SpeakerConfiguration = 6
+MouseSensitivity = 10
+scrollSpeed = 2.71388101577759
+mousePanSpeed = 2.71388101577759
+MouseCursorSize = 32
+SkipUnitRevealTutorial = false
+HotKeyBindOverride = ""
+Region = 1
+InvertMousePan = true
+EnableFocusFire = true

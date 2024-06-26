@@ -65,6 +65,7 @@ const parseAndSortUnits = (body) => {
       return tier.name;
     };
     return body.pageProps.data.allUnits.map(unit => ({
+      unitId: unit.unitId,
       costBandwidth: unit.costBandwidth,
       costMatter: unit.costMatter,
       costEnergy: unit.costEnergy,

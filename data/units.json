@@ -1,5 +1,6 @@
 [
     {
+        "unitId": 75,
         "costBandwidth": 2,
         "costMatter": 100,
         "costEnergy": 0,
@@ -20,6 +21,7 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/crab.png"
     },
     {
+        "unitId": 74,
         "costBandwidth": 2,
         "costMatter": 75,
         "costEnergy": 25,
@@ -40,6 +42,7 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/hunter.png"
     },
     {
+        "unitId": 34,
         "costBandwidth": 2,
         "costMatter": 100,
         "costEnergy": 0,
@@ -60,6 +63,7 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/recall.png"
     },
     {
+        "unitId": 40,
         "costBandwidth": 2,
         "costMatter": 75,
         "costEnergy": 25,
@@ -80,6 +84,7 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/recallhunter.png"
     },
     {
+        "unitId": 27,
         "costBandwidth": 1,
         "costMatter": 50,
         "costEnergy": 0,
@@ -100,6 +105,7 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/scorpion.png"
     },
     {
+        "unitId": 24,
         "costBandwidth": 2,
         "costMatter": 75,
         "costEnergy": 25,
@@ -120,6 +126,7 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/beetle.png"
     },
     {
+        "unitId": 42,
         "costBandwidth": 2,
         "costMatter": 100,
         "costEnergy": 0,
@@ -140,6 +147,7 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/blink.png"
     },
     {
+        "unitId": 35,
         "costBandwidth": 2,
         "costMatter": 75,
         "costEnergy": 25,
@@ -160,6 +168,7 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/blinkhunter.png"
     },
     {
+        "unitId": 1,
         "costBandwidth": 1,
         "costMatter": 50,
         "costEnergy": 0,
@@ -180,6 +189,7 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/gunbot.png"
     },
     {
+        "unitId": 6,
         "costBandwidth": 2,
         "costMatter": 75,
         "costEnergy": 25,
@@ -200,6 +210,7 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/missilebot.png"
     },
     {
+        "unitId": 2,
         "costBandwidth": 1,
         "costMatter": 25,
         "costEnergy": 0,
@@ -220,6 +231,7 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/wasp.png"
     },
     {
+        "unitId": 25,
         "costBandwidth": 2,
         "costMatter": 75,
         "costEnergy": 25,
@@ -240,6 +252,7 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/hornet.png"
     },
     {
+        "unitId": 76,
         "costBandwidth": 5,
         "costMatter": 125,
         "costEnergy": 125,
@@ -260,6 +273,7 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/ballista.png"
     },
     {
+        "unitId": 80,
         "costBandwidth": 5,
         "costMatter": 125,
         "costEnergy": 125,
@@ -280,6 +294,7 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/kingcrab.png"
     },
     {
+        "unitId": 17,
         "costBandwidth": 5,
         "costMatter": 125,
         "costEnergy": 125,
@@ -300,6 +315,7 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/crusader.png"
     },
     {
+        "unitId": 8,
         "costBandwidth": 2,
         "costMatter": 50,
         "costEnergy": 50,
@@ -320,6 +336,7 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/bomber.png"
     },
     {
+        "unitId": 41,
         "costBandwidth": 5,
         "costMatter": 125,
         "costEnergy": 125,
@@ -340,6 +357,7 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/shocker.png"
     },
     {
+        "unitId": 68,
         "costBandwidth": 5,
         "costMatter": 125,
         "costEnergy": 125,
@@ -360,6 +378,7 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/recallshocker.png"
     },
     {
+        "unitId": 9,
         "costBandwidth": 5,
         "costMatter": 125,
         "costEnergy": 125,
@@ -380,6 +399,7 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/mortar.png"
     },
     {
+        "unitId": 64,
         "costBandwidth": 5,
         "costMatter": 125,
         "costEnergy": 125,
@@ -400,13 +420,14 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/swiftshocker.png"
     },
     {
+        "unitId": 38,
         "costBandwidth": 5,
         "costMatter": 125,
         "costEnergy": 125,
         "name": "Heavy Hunter",
-        "statDamage": 4,
+        "statDamage": 5,
         "statHealth": 4,
-        "statRange": 3,
+        "statRange": 4,
         "statSpeed": 3,
         "techTier": "Foundry",
         "techTierId": 1,
@@ -420,13 +441,14 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/heavyhunter.png"
     },
     {
+        "unitId": 58,
         "costBandwidth": 5,
         "costMatter": 125,
         "costEnergy": 125,
         "name": "Destroyer",
         "statDamage": 5,
         "statHealth": 3,
-        "statRange": 2,
+        "statRange": 3,
         "statSpeed": 2,
         "techTier": "Foundry",
         "techTierId": 1,
@@ -440,6 +462,7 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/destroyer.png"
     },
     {
+        "unitId": 28,
         "costBandwidth": 5,
         "costMatter": 125,
         "costEnergy": 125,
@@ -460,11 +483,12 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/raider.png"
     },
     {
+        "unitId": 20,
         "costBandwidth": 0,
         "costMatter": 100,
         "costEnergy": 50,
         "name": "Turret",
-        "statDamage": 2,
+        "statDamage": 5,
         "statHealth": 4,
         "statRange": 4,
         "statSpeed": 0,
@@ -480,6 +504,7 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/turret.png"
     },
     {
+        "unitId": 73,
         "costBandwidth": 5,
         "costMatter": 125,
         "costEnergy": 125,
@@ -500,6 +525,7 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/butterfly.png"
     },
     {
+        "unitId": 11,
         "costBandwidth": 5,
         "costMatter": 125,
         "costEnergy": 125,
@@ -520,11 +546,12 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/dragonfly.png"
     },
     {
+        "unitId": 13,
         "costBandwidth": 5,
         "costMatter": 125,
         "costEnergy": 125,
         "name": "Falcon",
-        "statDamage": 3,
+        "statDamage": 4,
         "statHealth": 4,
         "statRange": 2,
         "statSpeed": 1,
@@ -540,6 +567,7 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/falcon.png"
     },
     {
+        "unitId": 72,
         "costBandwidth": 5,
         "costMatter": 125,
         "costEnergy": 125,
@@ -560,6 +588,7 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/airship.png"
     },
     {
+        "unitId": 61,
         "costBandwidth": 2,
         "costMatter": 50,
         "costEnergy": 50,
@@ -580,6 +609,7 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/advancedrecall.png"
     },
     {
+        "unitId": 51,
         "costBandwidth": 5,
         "costMatter": 125,
         "costEnergy": 125,
@@ -600,6 +630,7 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/mammoth.png"
     },
     {
+        "unitId": 70,
         "costBandwidth": 5,
         "costMatter": 125,
         "costEnergy": 125,
@@ -620,11 +651,12 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/stinger.png"
     },
     {
+        "unitId": 53,
         "costBandwidth": 0,
         "costMatter": 200,
         "costEnergy": 100,
         "name": "Heavy Turret",
-        "statDamage": 4,
+        "statDamage": 5,
         "statHealth": 5,
         "statRange": 4,
         "statSpeed": 0,
@@ -640,6 +672,7 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/heavyturret.png"
     },
     {
+        "unitId": 77,
         "costBandwidth": 10,
         "costMatter": 250,
         "costEnergy": 250,
@@ -660,6 +693,7 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/heavyballista.png"
     },
     {
+        "unitId": 14,
         "costBandwidth": 5,
         "costMatter": 125,
         "costEnergy": 125,
@@ -680,6 +714,49 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/predator.png"
     },
     {
+        "unitId": 32,
+        "costBandwidth": 5,
+        "costMatter": 125,
+        "costEnergy": 125,
+        "name": "Sniper",
+        "statDamage": 4,
+        "statHealth": 2,
+        "statRange": 5,
+        "statSpeed": 1,
+        "techTier": "Advanced Foundry",
+        "techTierId": 3,
+        "unitAbility": null,
+        "unitTag": "Anti-Ground Long Range Ground Unit",
+        "unitTagArray": ["Anti-Ground", "Long", "Range", "Ground"],
+        "slug": "sniper",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/sniper.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/sniper.mp4",
+        "website": "https://www.playbattleaces.com/units/sniper",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/sniper.png"
+    },
+    {
+        "unitId": 52,
+        "costBandwidth": 2,
+        "costMatter": 50,
+        "costEnergy": 50,
+        "name": "Advanced Blink",
+        "statDamage": 2,
+        "statHealth": 4,
+        "statRange": 2,
+        "statSpeed": 3,
+        "techTier": "Advanced Foundry",
+        "techTierId": 3,
+        "unitAbility": "Blink",
+        "unitTag": "Versatile Ground Unit",
+        "unitTagArray": ["Versatile", "Ground"],
+        "slug": "advancedblink",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/advancedblink.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/advancedblink.mp4",
+        "website": "https://www.playbattleaces.com/units/advancedblink",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/advancedblink.png"
+    },
+    {
+        "unitId": 39,
         "costBandwidth": 1,
         "costMatter": 50,
         "costEnergy": 0,
@@ -700,6 +777,7 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/assaultbot.png"
     },
     {
+        "unitId": 57,
         "costBandwidth": 5,
         "costMatter": 250,
         "costEnergy": 0,
@@ -720,6 +798,7 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/behemoth.png"
     },
     {
+        "unitId": 47,
         "costBandwidth": 10,
         "costMatter": 250,
         "costEnergy": 250,
@@ -740,6 +819,7 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/bulwark.png"
     },
     {
+        "unitId": 29,
         "costBandwidth": 10,
         "costMatter": 250,
         "costEnergy": 250,
@@ -760,6 +840,7 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/katbus.png"
     },
     {
+        "unitId": 54,
         "costBandwidth": 2,
         "costMatter": 50,
         "costEnergy": 50,
@@ -780,6 +861,28 @@
         "image": "https://cdn.playbattleaces.com/images/icons/units/locust.png"
     },
     {
+        "unitId": 48,
+        "costBandwidth": 80,
+        "costMatter": 3000,
+        "costEnergy": 3000,
+        "name": "Kraken",
+        "statDamage": 5,
+        "statHealth": 5,
+        "statRange": 3,
+        "statSpeed": 2,
+        "techTier": "Advanced Starforge",
+        "techTierId": 4,
+        "unitAbility": null,
+        "unitTag": "Versatile Monstrous Air Unit",
+        "unitTagArray": ["Versatile", "Monstrous", "Air"],
+        "slug": "kraken",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/kraken.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/kraken.mp4",
+        "website": "https://www.playbattleaces.com/units/kraken",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/kraken.png"
+    },
+    {
+        "unitId": 30,
         "costBandwidth": 5,
         "costMatter": 125,
         "costEnergy": 125,
@@ -798,5 +901,47 @@
         "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/valkyrie.mp4",
         "website": "https://www.playbattleaces.com/units/valkyrie",
         "image": "https://cdn.playbattleaces.com/images/icons/units/valkyrie.png"
+    },
+    {
+        "unitId": 49,
+        "costBandwidth": 5,
+        "costMatter": 125,
+        "costEnergy": 125,
+        "name": "Artillery",
+        "statDamage": 5,
+        "statHealth": 3,
+        "statRange": 4,
+        "statSpeed": 1,
+        "techTier": "Advanced Starforge",
+        "techTierId": 4,
+        "unitAbility": null,
+        "unitTag": "Anti-Ground Splash Ground Unit",
+        "unitTagArray": ["Anti-Ground", "Splash", "Ground"],
+        "slug": "artillery",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/artillery.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/artillery.mp4",
+        "website": "https://www.playbattleaces.com/units/artillery",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/artillery.png"
+    },
+    {
+        "unitId": 37,
+        "costBandwidth": 1,
+        "costMatter": 50,
+        "costEnergy": 0,
+        "name": "Advancedbot",
+        "statDamage": 2,
+        "statHealth": 1,
+        "statRange": 2,
+        "statSpeed": 2,
+        "techTier": "Advanced Starforge",
+        "techTierId": 4,
+        "unitAbility": "Overclock",
+        "unitTag": "Versatile Ground Unit",
+        "unitTagArray": ["Versatile", "Ground"],
+        "slug": "advancedbot",
+        "videoTurnaround": "https://cdn.playbattleaces.com/videos/turnarounds/advancedbot.mp4",
+        "videoGameplay": "https://cdn.playbattleaces.com/videos/gameplay/advancedbot.mp4",
+        "website": "https://www.playbattleaces.com/units/advancedbot",
+        "image": "https://cdn.playbattleaces.com/images/icons/units/advancedbot.png"
     }
 ]
