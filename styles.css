@@ -84,6 +84,7 @@ h1 {
 }
 
 .actions {
+    margin: 10px;
     width: 528px;
     justify-content: space-between;
 }
@@ -289,4 +290,62 @@ body {
     top: 10px;
     right: 10px;
     background: white;
+}
+
+#abilities {
+    display: flex;
+    flex-direction: column;
+    height: 254px;
+    margin: 10px;
+    justify-content: space-around;
+    flex-wrap:warp;
+}
+
+.ability {
+    background-color: white;
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+    border: 1px solid grey;
+}
+
+#main-selection {
+    display: flex;
+}
+
+.ability::before {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-top: 18px;
+    /* position: relative;
+    font-size: xx-large;
+    top: 0;
+    left: 17.5px; */
+    color: gray;
+    
+}
+
+.ability:nth-child(1) {
+    &::before {
+        content: 'Q';
+    }
+}
+
+.ability:nth-child(2) {
+    &::before {
+        content: 'W';
+    }
+}
+
+.ability:nth-child(3) {
+    &::before {
+        content: 'E';
+    }
+}
+
+.ability:nth-child(4) {
+    &::before {
+        content: 'R';
+    }
 }
