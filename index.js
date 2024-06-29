@@ -498,6 +498,7 @@ function createImageElement(url, id) {
     const img = document.createElement('img');
     img.src = url;
     img.id = id;
+    img.setAttribute('crossOrigin', "anonymous");
     return img;
 }
 
@@ -522,10 +523,14 @@ document.getElementById('animate-button').addEventListener('click', () => {
 function createVideo(slug) {
     const video = document.createElement('video');
     video.id = `${slug}-video`;
+    video.className = 'video'
     // video.setAttribute("autoplay", '')
     video.setAttribute('muted', '');
     video.setAttribute('loop', '');
     video.setAttribute('height', '100px');
+    video.setAttribute('crossOrigin', "anonymous");
+    video.setAttribute('preload', 'metadata');
+    video.setAttribute('playsInline', '');
     const source = document.createElement('source');
     source.id = 'video-source';
     source.src = `https://cdn.playbattleaces.com/videos/turnarounds/${slug}.mp4`;
@@ -552,53 +557,96 @@ function removeVideo() {
     }
 }
 
-const capture = () => {
-    const canvas = document.createElement('canvas');
-    const downloadLink = document.createElement("a");
-    downloadLink.download = getSelectedUnitSlugs().map(slug => slug ? units.find(unit => unit.slug === slug).name : 'Empty')
+function downloadImage(name, image) {
+    const downloadLink = document.createElement('a');
+    downloadLink.download = name;
+    downloadLink.href = image;
+    downloadLink.click();
+    downloadLink.remove()
+}
 
-    const el = document.getElementById('video');
+// get drawing offset for element at index, 
+// assuming all elements have same width and height
+// and the final shape has xcount of horizontal images
+function getDrawingOffset(index, width, height, xcount) {
+    const y = Math.floor(index / xcount)
+    const x = index % xcount
+    return { 
+        xOffset: x * width, 
+        yOffset: y * height
+    }
+}
 
-    let rect = el.getBoundingClientRect()
+const capture = (width, height, sources, scale, crop) => {
+    const canvas = document.getElementById('canvas');
+    const context = canvas.getContext('2d');
+    const size = width/scale
+    const lineWidth = Math.floor(size/50);
+    const columns = 4
+    const rows = 2
+    canvas.width = size * columns;
+    canvas.height = size * rows;
+    context.strokeStyle = 'white';
+    context.lineWidth = lineWidth;
+    const selectedUnits = getSelectedUnitSlugs();
+    const fileName = selectedUnits.map(slug => 
+        slug ? 
+            units.find(unit => unit.slug === slug).name : 
+            'Empty'
+    )
 
-    navigator.mediaDevices
-        .getDisplayMedia({
-            selfBrowserSurface: 'include',
-        })
-        .then((stream) => {
+    fillMissing(Array.from(sources)).forEach((source, index) => {
+        const {xOffset, yOffset} = getDrawingOffset(index, size, size, columns, rows)
+        if(source) {
+            context.drawImage(
+                source,
+                0,       0,       width/crop, height,
+                xOffset, yOffset, size,    size
+            );
+        }
+        else {
+            context.fillStyle = 'gray';
+            context.fillRect(xOffset, yOffset, size, size);
+        }
+        // draw border
+        context.rect(xOffset, yOffset, size, size);
+        context.stroke();
+    });
 
-            const track = stream.getVideoTracks()[0];
-            const imageCapture = new ImageCapture(track);
-            
-            imageCapture.grabFrame().then((bitmap) => {
-                track.stop();
-                
-                canvas.width = bitmap.width;
-                canvas.height = bitmap.height;
-                const context = canvas.getContext('2d');
-                context.drawImage(bitmap, 0, 0, bitmap.width, bitmap.height)
-                // context.drawImage(bitmap, rect.x, rect.y, rect.width, rect.height, 0, 0, rect.width, rect.height);
-                const image = canvas.toDataURL();
-
-                
-                downloadLink.href = image;
-                console.log(image)
-                downloadLink.click();
-            });
-        });
+    downloadImage(fileName, canvas.toDataURL());
 };
 
 const screenshot = document.getElementById('screenshot');
-if(
-    'mediaDevices' in navigator && 
-    'getDisplayMedia' in navigator.mediaDevices && 
-    'ImageCapture' in window
-) {
-    screenshot.addEventListener('click', () => {
-        capture();
-    });
-} else {
-    screenshot.remove();
-}
+screenshot.addEventListener('click', () => {
+    const videoContainer = document.getElementById('video')
+    if(videoContainer.hasChildNodes()) {
+        const height = 2160; //px
+        const width = 3840; //px
+        const crop = 2;
+        const scaleDown = 8;
+        capture(width, height, videoContainer.querySelectorAll('video'), scaleDown, crop);
+    }
+    else {
+        const height = 256; //px
+        const width = 256; //px
+        const crop = 1;
+        const scaleDown = 1;
+        capture(width, height, document.getElementsByClassName('card-img'), scaleDown, crop)
+    }
+});
 
+function fillMissing(elements) {
+    if(elements.length < 8) {
+        const selected = getSelectedUnitSlugs();
+        const filled = new Array(8).fill(undefined);
+        
+        elements.forEach(element => {
+            const index = selected.findIndex(slug => slug && element.id.includes(slug));
+            filled[index] = element;   
+        })
+        //todo: fill with createImageElement ( tier svg )
+        return filled;
+    }
+    return elements;
+}
 
