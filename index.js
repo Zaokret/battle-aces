@@ -157,6 +157,14 @@ function createTagFilter(tags, handleChecked) {
     const filter = document.createElement('div');
     filter.className = 'tag-filter';
     const sortedTags = tags.sort();
+
+    const details = document.createElement('details');
+    const summary = document.createElement('summary');
+    summary.innerText = 'Filters';
+    details.appendChild(summary);
+    
+    const detailInner = document.createElement('div');
+
     sortedTags.forEach((tag) => {
         const inputWrapper = document.createElement('div');
         inputWrapper.className = 'tag-input-wrapper';
@@ -185,8 +193,10 @@ function createTagFilter(tags, handleChecked) {
         inputWrapper.appendChild(checkbox);
         inputWrapper.appendChild(label);
 
-        filter.appendChild(inputWrapper);
+        detailInner.appendChild(inputWrapper);
     });
+    details.appendChild(detailInner)
+    filter.appendChild(details);
     return filter;
 }
 
