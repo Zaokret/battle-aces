@@ -1,6 +1,5 @@
 var units = [];
 var tiers = [];
-var isPopoverOpen = false;
 
 fetchUnitsAndTiers()
     .then((data) => {
@@ -12,8 +11,31 @@ fetchUnitsAndTiers()
     });
 
 const unitInput = document.getElementById('select-unit');
-
 const cards = document.getElementsByClassName('card');
+
+const abilityInput = document.getElementById('select-ability')
+const abilities = document.getElementsByClassName('ability');
+
+Array.from(abilities).forEach(ability => {
+    ability.addEventListener('click', () => {
+        const selected = getSelectedUnitSlugs();
+        const available = units
+        .filter(unit => selected.includes(unit.slug))
+        .reduce((abs, unit) => {
+            if(unit.unitAbility && !abs.includes(unit.unitAbility)) {
+                abs.push(unit.unitAbility)
+            }
+            return abs;
+        }, [])
+        
+
+        abilityInput.innerHTML = `${ability.id}: ${available.join(', ')}`;
+        abilityInput.togglePopover();
+    })
+})
+
+
+
 
 document.getElementById('share-button').addEventListener('click', () => {
     copyDeck();
@@ -35,7 +57,6 @@ function removeInProgress() {
 }
 
 unitInput.addEventListener('toggle', (event) => {
-    isPopoverOpen = event.newState === 'open';
     if (event.newState === 'closed') {
         unitInput.innerHTML = '';
         removeInProgress();
