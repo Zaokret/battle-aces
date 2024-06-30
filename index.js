@@ -162,6 +162,7 @@ document.getElementById('share-button').addEventListener('click', () => {
 document.getElementById('reset-button').addEventListener('click', () => {
     resetDeck();
     resetAnimation();
+    resetAbilities();
 });
 
 function resetAnimation() {
@@ -665,6 +666,14 @@ function resetDeck() {
         card.innerHTML = '';
     }
     saveDeckToUrl([]);
+}
+
+function resetAbilities() {
+    for(const ability of abilities) {
+        ability.innerHTML = ''
+        ability.classList.remove('filled-slot')
+    }
+    saveAbilitiesToUrl([]);
 }
 
 function copyDeck() {
