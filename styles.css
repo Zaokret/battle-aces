@@ -229,7 +229,8 @@ h1 {
 .tag-input,
 .tag-input-label,
 .card,
-summary {
+summary, 
+.ability {
     cursor: pointer;
 }
 
@@ -316,37 +317,63 @@ body {
 
 .ability::before {
     display: inline-block;
-    width: 100%;
+    width: 18px;
     text-align: center;
-    margin-top: 18px;
-    /* position: relative;
-    font-size: xx-large;
-    top: 0;
-    left: 17.5px; */
     color: gray;
-    
+    position: relative;
+    bottom: -44px;
+    left: 19px;
+    background-color: black;
+    color: white;
 }
 
-.ability:nth-child(1) {
+.ability.slot:nth-child(1) {
     &::before {
         content: 'Q';
     }
 }
 
-.ability:nth-child(2) {
+.ability.slot:nth-child(2) {
     &::before {
         content: 'W';
     }
 }
 
-.ability:nth-child(3) {
+.ability.slot:nth-child(3) {
     &::before {
         content: 'E';
     }
 }
 
-.ability:nth-child(4) {
+.ability.slot:nth-child(4) {
     &::before {
         content: 'R';
+    }
+}
+
+#select-ability {
+    border: none;
+    background: none;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+}
+
+.ability.selection {
+    display: inline-block;
+    background-color: black;
+    margin-left: 10px;
+}
+
+.ability-icon {
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+}
+
+.filled-slot {
+    background-color: black;
+    & > img {
+        margin-top: -20px;
     }
 }
