@@ -84,6 +84,7 @@ h1 {
 }
 
 .actions {
+    margin: 10px;
     width: 528px;
     justify-content: space-between;
 }
@@ -228,7 +229,8 @@ h1 {
 .tag-input,
 .tag-input-label,
 .card,
-summary {
+summary, 
+.ability {
     cursor: pointer;
 }
 
@@ -290,4 +292,88 @@ body {
     top: 10px;
     right: 10px;
     background: white;
+}
+
+#abilities {
+    display: flex;
+    flex-direction: column;
+    height: 254px;
+    margin: 10px;
+    justify-content: space-around;
+    flex-wrap:warp;
+}
+
+.ability {
+    background-color: white;
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+    border: 1px solid grey;
+}
+
+#main-selection {
+    display: flex;
+}
+
+.ability::before {
+    display: inline-block;
+    width: 18px;
+    text-align: center;
+    color: gray;
+    position: relative;
+    bottom: -44px;
+    left: 19px;
+    background-color: black;
+    color: white;
+}
+
+.ability.slot:nth-child(1) {
+    &::before {
+        content: 'Q';
+    }
+}
+
+.ability.slot:nth-child(2) {
+    &::before {
+        content: 'W';
+    }
+}
+
+.ability.slot:nth-child(3) {
+    &::before {
+        content: 'E';
+    }
+}
+
+.ability.slot:nth-child(4) {
+    &::before {
+        content: 'R';
+    }
+}
+
+#select-ability {
+    border: none;
+    background: none;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+}
+
+.ability.selection {
+    display: inline-block;
+    background-color: black;
+    margin-left: 10px;
+}
+
+.ability-icon {
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+}
+
+.filled-slot {
+    background-color: black;
+    & > img {
+        margin-top: -20px;
+    }
 }

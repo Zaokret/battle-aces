@@ -1,6 +1,5 @@
 var units = [];
 var tiers = [];
-var isPopoverOpen = false;
 
 fetchUnitsAndTiers()
     .then((data) => {
@@ -9,11 +8,153 @@ fetchUnitsAndTiers()
     })
     .then(() => {
         setupCards();
+        setupAbilities();
     });
 
-const unitInput = document.getElementById('select-unit');
+function setupAbilities() {
+    const abs = readAbilitiesFromUrl();
+    if (validateAbilities(abs)) {
+        insertAbilitiesIntoSlots(abs);
+    } else {
+        saveAbilitiesToUrl([]);
+    }
+}
 
+function insertAbilitiesIntoSlots(abs) {
+    if(abs && abs.length > 0) {
+        for(let i = 0; i < abs.length; i++) {
+            if(abs[i]) {
+                abilities[i].appendChild(createAbilityIcon(abs[i]));
+                abilities[i].classList.add('filled-slot')
+            }
+        }
+    }
+}
+
+function validateAbilities(abs) {
+    if(abs.length > 4) {
+        return false;
+    }
+    
+    // check for duplicates
+    const filtered = abs.filter(Boolean);
+    const set = [...new Set(filtered)];
+    if (filtered.length !== set.length) {
+        return false;
+    }
+
+    const selectedUnits = getSelectedUnitSlugs();
+    const available = units
+    .filter(unit => selectedUnits.includes(unit.slug))
+    .reduce((abs, unit) => {
+        if(unit.unitAbility && !abs.includes(unit.unitAbility)) {
+            abs.push(unit.unitAbility.toLowerCase())
+        }
+        return abs;
+    }, [])
+
+    return abs.filter(Boolean).every(abName => available.includes(abName)) 
+}
+
+const unitInput = document.getElementById('select-unit');
 const cards = document.getElementsByClassName('card');
+
+const abilityInput = document.getElementById('select-ability')
+const abilities = document.getElementsByClassName('ability slot');
+
+function getSelectedAbilityNames() {
+    return Array.from(abilities).map(ab => {
+        const img = ab.querySelector('img') 
+        return img ? img.id.replace('-ability-icon', '') : ''
+    })
+}
+
+Array.from(abilities).forEach(slot => {
+    slot.addEventListener('click', () => {
+        const selectedUnits = getSelectedUnitSlugs();
+        const available = units
+        .filter(unit => selectedUnits.includes(unit.slug))
+        .reduce((abs, unit) => {
+            if(unit.unitAbility && !abs.includes(unit.unitAbility)) {
+                abs.push(unit.unitAbility.toLowerCase())
+            }
+            return abs;
+        }, [])
+        abilityInput.innerHTML = ''
+        removeInProgressAbility();
+
+        const selected = getSelectedAbilityNames()
+        
+        Array.from(new Set(available)).sort((a,b) => {
+            return selected.indexOf(a) - selected.indexOf(b);
+        }).forEach(name => {
+            // create and handle selection
+            abilityInput.appendChild(createAbilitySelection(name, () => {
+                // check if the ability is already populated in slots and remove it
+                Array.from(abilities).forEach(selectedAbility => {
+                    const img = selectedAbility.querySelector('img')
+                    if(img && img.id.includes(name.toLowerCase())) {
+                        selectedAbility.innerHTML = ''
+                        selectedAbility.classList.remove('filled-slot')
+                    }
+                })
+                slot.innerHTML = ''
+                slot.appendChild(createAbilityIcon(name));
+                slot.classList.add('filled-slot')
+                
+                saveAbilitiesToUrl(getSelectedAbilityNames())
+                abilityInput.togglePopover(false)
+            }))
+        })
+
+        slot.classList.add('selection-in-progress')
+        abilityInput.style.left = slot.offsetLeft + slot.clientWidth + 'px';
+        abilityInput.style.top = slot.offsetTop + 'px'; 
+        abilityInput.togglePopover();
+    })
+})
+
+function checkSelectedAbilities(selectedUnitSlugs) {
+        const available = units
+        .filter(unit => selectedUnitSlugs.includes(unit.slug))
+        .reduce((abs, unit) => {
+            if(unit.unitAbility && !abs.includes(unit.unitAbility)) {
+                abs.push(unit.unitAbility)
+            }
+            return abs;
+        }, [])
+    Array.from(abilities).forEach(selectedAbility => {
+        const img = selectedAbility.querySelector('img')
+        if(img && available.every(aa => !img.id.includes(aa.toLowerCase()))) {
+                selectedAbility.innerHTML = ''
+                selectedAbility.classList.remove('filled-slot')
+        }
+    })
+    saveAbilitiesToUrl(getSelectedAbilityNames())
+}
+
+function createAbilitySelection(name, handleSelected) {
+    const el = document.createElement('div')
+    el.classList.add('ability')
+    el.classList.add('selection')
+    el.appendChild(createAbilityIcon(name))
+    el.addEventListener('click', handleSelected)
+    return el;
+}
+
+function createAbilityIcon(name) {
+    const url = 
+    window.location.protocol +
+    '//' +
+    window.location.host +
+    window.location.pathname + 
+    'images/abilities/' +
+    name.toLowerCase() +
+    '.png'
+    const icon = createImageElement(url, `${name.toLowerCase()}-ability-icon`);
+    icon.className = 'ability-icon'
+    return icon;
+}
 
 document.getElementById('share-button').addEventListener('click', () => {
     copyDeck();
@@ -35,12 +176,21 @@ function removeInProgress() {
 }
 
 unitInput.addEventListener('toggle', (event) => {
-    isPopoverOpen = event.newState === 'open';
     if (event.newState === 'closed') {
         unitInput.innerHTML = '';
         removeInProgress();
     }
 });
+
+abilityInput.addEventListener('toggle', (event) => {
+    if (event.newState === 'closed') {
+        removeInProgressAbility();
+    }
+})
+
+function removeInProgressAbility() {
+    Array.from(abilities).forEach(ab => ab.classList.remove('selection-in-progress'))
+}
 
 function getBackendUrl() {
     if (window.location.hostname.includes('github')) {
@@ -98,7 +248,9 @@ function setupCards() {
                     card.appendChild(img);
 
                     unitInput.hidePopover();
-                    saveDeckToUrl(getSelectedUnitSlugs());
+                    const slugs = getSelectedUnitSlugs();
+                    saveDeckToUrl(slugs);
+                    checkSelectedAbilities(slugs);
                 });
                 list.classList.add(card.id);
                 card.classList.add('selection-in-progress');
@@ -116,6 +268,8 @@ function setupCards() {
         saveDeckToUrl([]);
     }
 }
+
+
 
 function addVideoPreviewOnHover(name, el) {
     el.addEventListener('mouseenter', () => {
@@ -393,14 +547,37 @@ function getTierNamesByIds(ids) {
         .map((tier) => tier.name);
 }
 
+function saveAbilitiesToUrl(ids) {
+    const newUrl = new URL(window.location)
+    newUrl.searchParams.set('abs', window.btoa(ids.join(',')))
+    window.history.pushState({ path: newUrl.href }, '', newUrl.href);
+}
+
+function readAbilitiesFromUrl() {
+    let params = new URL(window.location).searchParams;
+    let codedDeck = params.get('abs');
+    if (!codedDeck) {
+        return [];
+    }
+    let decodedDeckString = '';
+    try {
+        decodedDeckString = window.atob(codedDeck);
+    } catch (error) {
+        console.error(error)
+        saveAbilitiesToUrl([])
+    }
+    
+    const arr = decodedDeckString
+        .split(',')
+        .map((s) => s.replace('\n', '').trim());
+
+    return arr;
+}
+
 function saveDeckToUrl(ids) {
-    const newUrl =
-        window.location.protocol +
-        '//' +
-        window.location.host +
-        window.location.pathname +
-        `?deck=${window.btoa(ids.join(','))}`;
-    window.history.pushState({ path: newUrl }, '', newUrl);
+    const newUrl = new URL(window.location)
+    newUrl.searchParams.set('deck', window.btoa(ids.join(',')))
+    window.history.pushState({ path: newUrl.href }, '', newUrl.href);
 }
 
 function readDeckFromUrl() {
@@ -409,7 +586,15 @@ function readDeckFromUrl() {
     if (!codedDeck) {
         return [];
     }
-    const decodedDeckString = window.atob(codedDeck);
+
+    let decodedDeckString = ''
+    try {
+        decodedDeckString = window.atob(codedDeck);
+    } catch (error) {
+        console.error(error)
+        saveDeckToUrl([])
+    }
+
     const arr = decodedDeckString
         .split(',')
         .map((s) => s.replace('\n', '').trim());
