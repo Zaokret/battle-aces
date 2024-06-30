@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>windows</h1>
+    <p><code>File Explorer > View > Show/Hide > Hidden items</code></p>
+    <p>Look in <code>C:\Users\YOUR_USER_NAME\AppData\LocalLow\Uncapped Games\Battle Aces\gameconfig-localuser.toml</code></p>
+    <h1>linux</h1>
+    <p><code>GUI file manager > View > Show Hidden Files</code></p>
+    <p>command line > <code>ls -al</code> < lists hidden directories</p>
+    <p>Look in <code>SteamLibrary/steamapps/compatdata/STEAM_APP_ID/pfx/drive_c/users/steamuser/AppData/LocalLow/Uncapped Games/Battle Aces/gameconfig-localuser.toml</code></p>
+    <input type="file" id="file-input" accept=".toml" />
+    <pre id="file-contents"></pre>
+    <script>
+        
+        fetch(window.location.origin + '/data/abilities.json')
+            .then(res => res.json())
+            .then(res => localStorage.setItem('abilities', JSON.stringify(res)))
+
+        fetch('http://localhost:3000/data').then(res => res.json()).then(({units, tiers}) => {
+            localStorage.setItem('units', JSON.stringify(units))
+        })
+
+        const el = document.getElementById('file-input')
+        
+        el.addEventListener('change', () => {
+            const file = el.files[0]
+            var reader = new FileReader();
+            reader.readAsText(file, "UTF-8");
+            reader.onload = function (evt) {
+                localStorage.setItem('gameconfig-localuser', evt.target.result)
+                const decksJSON = parseDeck(evt.target.result);
+                localStorage.setItem('gameconfig-localuser-decks', decksJSON)
+                // const obj = JSON.parse(decksJSON);
+                // getDeckBuilderURL(obj.Decks[0])
+
+                const deckUrl = `https://zaokret.github.io/battle-aces/?deck=Y3JhYixiYWxsaXN0YSxoZWF2eWJhbGxpc3RhLGtpbmdjcmFiLGh1bnRlcixidXR0ZXJmbHksYnVsd2FyayxkcmFnb25mbHk%3D&abs=LCws`
+                const deck = getDeckFromURL(deckUrl)
+                console.log(deck)
+                const newUrl = getDeckBuilderURL(deck);
+                console.log(newUrl)
+            }
+            reader.onerror = function (evt) {
+                document.getElementById("file-contents").innerHTML = "error reading file";
+            }
+        })
+
+        function prettyStringify(obj) {
+            return JSON.stringify(obj, undefined, 2)
+        }
+
+        function parseDeck(fileAsString) {
+            return JSON.parse(fileAsString
+                    .split('\n')
+                    .find(line => line && line.startsWith('decks'))
+                    .replace('decks = ', '')
+                    .trim())
+        }
+
+        function getDeckBuilderURL(deck) {
+            const abiToId = JSON.parse(localStorage.getItem('abilities'))
+            const units = JSON.parse(localStorage.getItem('units'))
+            const abilities = deck._activeAbilities.map(abi => {
+                return Object.keys(abiToId).find((key) => abiToId[key] === abi._id) || ''
+            });
+            
+            let unitIds = [];
+            let midpoint = deck._units.length/2;
+            let newArray = new Array(deck._units.length);
+            // de-interleaving
+            for (let i = 0; i < midpoint; i++) {
+                unitIds[i] = deck._units[2 * i]._id;
+                unitIds[midpoint + i] = deck._units[2 * i + 1]._id;
+            }
+            const slugs = unitIds.map(id => units.find(unit => unit.unitId === id).slug)
+            const url = new URL('https://zaokret.github.io/battle-aces/')
+            
+            url.searchParams.set('deck', window.btoa(slugs))
+            url.searchParams.set('abs', window.btoa(abilities))
+            return url;
+        }
+
+        function getDeckFromURL(str) {
+            const abiToId = JSON.parse(localStorage.getItem('abilities'))
+            const unitDetails = JSON.parse(localStorage.getItem('units'))
+
+            const url = new URL(str)
+
+            let abilities = new Array(4).fill({ _id: 0 })
+            if(url.searchParams.has('abs')) {
+                const encoded = url.searchParams.get('abs')
+                try {
+                    const decoded = window.atob(encoded)
+                    const arr = decoded.split(',')
+                    // NOW VALIDATE AND THEN
+                    arr.forEach((key, index) => {
+                        abilities[index]._id = abiToId[key] || 0;
+                    })
+                } catch (err) {
+                    console.error(err)
+                }
+            }
+
+            let units = new Array(8).fill({ _id: 0 })
+            if(url.searchParams.has('deck')) {
+                const encoded = url.searchParams.get('deck')
+                try {
+                    const decoded = window.atob(encoded)
+                    const arr = decoded.split(',')
+
+                    if(arr.length !== 8) {
+                        throw new Error('Deck is of wrong size.')
+                    }
+
+                    const midpoint = arr.length / 2;
+                    let newArray = new Array(arr.length);
+                    for (let i = 0; i < midpoint; i++) {
+                        newArray[2 * i] = arr[i];
+                        newArray[2 * i + 1] = arr[midpoint + i];
+                    }
+
+                    // NOW VALIDATE AND THEN
+                    newArray.forEach((slug, index) => {
+                        units[index] = {_id: unitDetails.find(unit => slug && unit.slug.includes(slug))?.unitId || 0}
+                    })
+                } catch (err) {
+                    console.error(err)
+                }
+            }
+
+            return {
+                _name: "",
+                _activeAbilities: abilities,
+                _units: units
+            }
+        }
+    </script>
+</body>
+</html>
