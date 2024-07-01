@@ -297,25 +297,29 @@ saveBtn.addEventListener('click', () => {
 })
 
 fileInput.addEventListener('change', () => {
-    localStorage.clear();
     const file = fileInput.files[0]
     let reader = new FileReader();
     reader.readAsText(file, "UTF-8");
     reader.onload = function (evt) {
-        localStorage.setItem('gameconfig-localuser', evt.target.result)
+    try {
         const decksJSON = parseDeck(evt.target.result);
-        localStorage.setItem('gameconfig-localuser-decks', decksJSON)
         const obj = JSON.parse(decksJSON);
-
-        // show loaded decks
-        // pick loaded decks into deck builder
-        // choose one of the decks to overwrite 
-
         const inGameSelected = getSlugsAndAbilities(obj.SelectedDeck)
         const inGameSaved = obj.Decks.map(d => getSlugsAndAbilities(d))
-        localStorage.setItem('parsed-decks', JSON.stringify([inGameSelected, ...inGameSaved]))
-            
-        loadBtn.click();
+
+        const all = [inGameSelected, ...inGameSaved];
+        if(all.some(d => !validateAbilities(d.abilities, d.slugs) || !validateDeck(d.slugs))) {
+            throw new Error('Imported deck did not pass validation');
+        }
+        localStorage.clear();
+        localStorage.setItem('gameconfig-localuser', evt.target.result)
+        localStorage.setItem('gameconfig-localuser-decks', decksJSON)
+        localStorage.setItem('parsed-decks', JSON.stringify(all))
+    } catch (error) {
+        console.error(error)
+    }
+        
+    loadBtn.click();
     }
 })
 
@@ -398,21 +402,35 @@ function createDeckPreview(deck, index) {
 }
 
 function parseDeck(fileAsString) {
-    return JSON.parse(fileAsString
+    const line = fileAsString
             .split('\n')
             .find(line => line && line.startsWith('decks'))
-            .replace('decks = ', '')
-            .trim())
+    
+    if(line) {
+        try {
+            return JSON.parse(line.replace(' ', '').replace('decks=', ''))
+        } catch (error) {
+            console.error(error)
+            return ''
+        }
+    }
+    return ''
 }
 
 function replaceDecks(deckStr) {
     let fileAsString = localStorage.getItem('gameconfig-localuser')
+    let lines = fileAsString.split('\n');
+    let lineIndex = lines.findIndex(line => line && line.startsWith('decks'))
+    if(lineIndex > -1) {
+        lines[lineIndex] = `decks = ${deckStr}`
+    }
+    else {
+        lines.push(`decks = ${deckStr}`)
+    }
+
     localStorage.setItem(
         'gameconfig-localuser', 
-        fileAsString
-            .split('\n')
-            .map(line => line && line.startsWith('decks') ? `decks = ${deckStr}` : line)
-            .join('\n')
+        lines.join('\n')
     )
 }
 
@@ -479,26 +497,8 @@ function getSlugsAndAbilities(deck) {
 function getDeckFromURL(str, name='') {
     const url = new URL(str)
 
-    let newAbilities = new Array(4).fill({ _id: 0 })
-    if(url.searchParams.has('abs')) {
-        const encoded = url.searchParams.get('abs')
-        try {
-            const decoded = window.atob(encoded)
-            const arr = decoded.split(',')
-            
-            if(!validateAbilities(arr)) {
-                throw new Error('Invalid abilities');
-            }
-
-            arr.forEach((key, index) => {
-                newAbilities[index] = { _id: abilityToId[key] || 0 }
-            })
-        } catch (err) {
-            console.error(err)
-        }
-    }
-
     let newUnits = new Array(8).fill({ _id: 0 })
+    let slugs = [];
     if(url.searchParams.has('deck')) {
         const encoded = url.searchParams.get('deck')
         try {
@@ -508,6 +508,7 @@ function getDeckFromURL(str, name='') {
             if(!validateDeck(arr)) {
                 throw new Error('Invalid deck in URL');
             }
+            slugs = arr;
 
             if(arr.length > 8) {
                 throw new Error('Deck is of wrong size.')
@@ -527,6 +528,27 @@ function getDeckFromURL(str, name='') {
             console.error(err)
         }
     }
+
+    let newAbilities = new Array(4).fill({ _id: 0 })
+    if(url.searchParams.has('abs')) {
+        const encoded = url.searchParams.get('abs')
+        try {
+            const decoded = window.atob(encoded)
+            const arr = decoded.split(',')
+            
+            if(!validateAbilities(arr, slugs)) {
+                throw new Error('Invalid abilities');
+            }
+
+            arr.forEach((key, index) => {
+                newAbilities[index] = { _id: abilityToId[key] || 0 }
+            })
+        } catch (err) {
+            console.error(err)
+        }
+    }
+
+    
 
     return {
         _name: name,
@@ -590,18 +612,25 @@ function insertAbilitiesIntoSlots(abs) {
     }
 }
 
-function validateAbilities(abs) {
+function validateAbilities(abs, selectedUnits = getSelectedUnitSlugs()) {
     if(abs.length > 4) {
         return false;
     }
     
+    if(abs.length === 0) {
+        return true;
+    }
+
+    if(abs.every(a => a === '')) {
+        return true;
+    }
+
     const filtered = abs.filter(Boolean);
     const set = [...new Set(filtered)];
     if (filtered.length !== set.length) {
         return false;
     }
 
-    const selectedUnits = getSelectedUnitSlugs();
     const available = units
     .filter(unit => selectedUnits.includes(unit.slug))
     .reduce((abs, unit) => {
@@ -1084,6 +1113,9 @@ function readDeckFromUrl() {
 }
 
 function validateDeck(names) {
+    if(names.every(n => n === '')) {
+        return true;
+    }
     // check for duplicates
     const filtered = names.filter(Boolean);
     const set = [...new Set(filtered)];
