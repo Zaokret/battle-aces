@@ -88,6 +88,7 @@ function parseAndSortUnits(body) {
             unitAbility: unit.unitAbility && unit.unitAbility.name,
             unitTag: unit.unitTag,
             slug: unit.slug,
+            unitId: unit.unitId
         }))
         .sort((a, b) => a.techTierId - b.techTierId);
 }

@@ -29,6 +29,12 @@
                     <button id="screenshot" type="button">Screenshot</button>
                     <button id="reset-button" type="button">Reset</button>
                 </div>
+                <div class="row actions">
+                    <button type="button" id="load-file">Upload File</button>
+                    <button type="button" id="load-deck">Load Deck</button>
+                    <button type="button" id="save-deck">Save Deck</button>
+                    <button type="button" id="download-deck">Download File</button>
+                </div>
             </div>
             <div id="abilities">
                 <div class="ability slot" id="q"></div>
@@ -40,6 +46,19 @@
 
         <div popover="auto" id="select-unit"></div>
         <div popover="auto" id="select-ability"></div>
+        <div popover="auto" id="deck-selection"></div>
+
+        <!-- <h1>windows</h1>
+        <p><code>File Explorer > View > Show/Hide > Hidden items</code></p>
+        <p>Look in <code>C:\Users\YOUR_USER_NAME\AppData\LocalLow\Uncapped Games\Battle Aces\gameconfig-localuser.toml</code></p>
+        <h1>linux</h1>
+        <p><code>GUI file manager > View > Show Hidden Files</code></p>
+        <p>command line > <code>ls -al</code> < lists hidden directories</p>
+        <p>Look in <code>SteamLibrary/steamapps/compatdata/STEAM_APP_ID/pfx/drive_c/users/steamuser/AppData/LocalLow/Uncapped Games/Battle Aces/gameconfig-localuser.toml</code></p> -->
+        
+        <input type="file" id="file-input" accept=".toml" />
+        
+        
 
         <div id="video"></div>
         <canvas id="canvas" hidden></canvas>

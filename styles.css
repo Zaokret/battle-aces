@@ -92,6 +92,7 @@ h1 {
 .actions > button {
     padding: 5px 15px;
     font-family: 'BattleAcesFont', Arial;
+    min-width: 125px;
 }
 
 #select-unit {
@@ -114,6 +115,17 @@ h1 {
     margin-bottom: 0;
     background: black;
 }
+
+.select-image.empty {
+    background-color: black;
+}
+
+.brighten {
+    & .select-image {
+        background-color: rgb(119 119 119);
+    }
+}
+
 .card-name {
     text-align: center;
     margin: -3px 5px 5px 5px;
@@ -375,5 +387,36 @@ body {
     background-color: black;
     & > img {
         margin-top: -20px;
+    }
+}
+
+#deck-selection {
+    background-color: #373737;
+}
+
+#file-input {
+    display: none;
+}
+
+.deck-preview-group {
+    border: 3px solid white;
+    margin: 10px;
+    & .select-image {
+        margin:0;
+        border: 3px solid white;
+        width: 80px;
+        height: 80px;
+    }
+}
+
+.deck-actions {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5px;
+    & button {
+        padding: 5px 15px;
+        font-family: 'BattleAcesFont', Arial;
+        min-width: 125px;
+
     }
 }
