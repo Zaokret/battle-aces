@@ -1,8 +1,17 @@
 # Battle Aces
 
-## Live data
+## Try it out
 
 [Deck Builder](https://zaokret.github.io/battle-aces/) with live data from https://www.playbattleaces.com/
+
+## Features
+
+ - view your in-game decks
+ - share a deck with an URL
+ - save 4 decks to a browser local storage
+ - save deck templates to your machine 
+ - view units in 3D 
+ - grab an instant screenshot
 
 ## Manual Scraping
 
@@ -12,12 +21,10 @@ run `npm run scrape` to download the latest unit information and assets
 
 ## Game integration
 
-Work in progress.
+Deck builder supports viewing your in-game selected and saved decks by uploading game configuration file.
 
-Game configuration, selected and saved decks are located in 
-`C:\Users\<USER_NAME>\AppData\LocalLow\Uncapped Games\Battle Aces\gameconfig-localuser.toml` file that is synched to a remote server. Manual overwrites of this file are ignored, and the following message is written in `Player.log`
-> TailoredUXTracking - noticed a steam inventory change, but no unit call to action changes were detected
+Game configuration path on Windows: `C:\Users\<USER_NAME>\AppData\LocalLow\Uncapped Games\Battle Aces\gameconfig-localuser.toml` 
 
-I've tried disabling steam cloud sync. 
+Game syncs game configuration file to a remote server. Overwrites of this file are ignored.
 
 

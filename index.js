@@ -10,8 +10,6 @@ var abilityToId = {
 }
 let selectedDeckIndex = -1;
 
-localStorage.clear();
-
 fetchUnitsAndTiers()
     .then((data) => {
         units = data.units;
@@ -20,14 +18,9 @@ fetchUnitsAndTiers()
     .then(() => {
         setupCards();
         setupAbilities();
-        addEmptyConfig();
+        setupStorage();
     });
 
-// fetch(window.location.origin + '/data/abilities.json')
-//     .then(res => res.json())
-//     .then(res => {
-//         abilityToId = res;
-//     })
 
 const unitInput = document.getElementById('select-unit');
 const cards = document.getElementsByClassName('card');
@@ -460,6 +453,25 @@ function addEmptyConfig() {
     const deckJSON = JSON.stringify(empty);
     localStorage.setItem('gameconfig-localuser-decks', deckJSON)
     localStorage.setItem('gameconfig-localuser', `decks = ${JSON.stringify(deckJSON)}`)
+}
+
+function setupStorage() {
+    try {
+        const decks = JSON.parse(localStorage.getItem('parsed-decks'))
+        if(decks.some(d => !validateAbilities(d.abilities, d.slugs) || !validateDeck(d.slugs))) {
+            throw new Error('Deck in local storage did not pass validation');
+        }
+        const configDecks = decks.map((d, index) => getDeckFromURL(createURL(d), index === 0 ? 'SelectedDeck' : ''))
+        const full = JSON.stringify({
+            SelectedDeck: configDecks[0],
+            Decks: configDecks.slice(1)
+        });
+        localStorage.setItem('gameconfig-localuser-decks',full)
+        replaceDecks(full)
+    } catch (error) {
+        console.error(error)
+        addEmptyConfig();
+    }
 }
 
 function createURL({slugs, abilities}) {
