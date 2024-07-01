@@ -1148,6 +1148,14 @@ function resetDeck() {
     saveDeckToUrl([]);
 }
 
+function resetAbilities() {
+    for(const ability of abilities) {
+        ability.innerHTML = ''
+        ability.classList.remove('filled-slot')
+    }
+    saveAbilitiesToUrl([]);
+}
+
 function copyDeck() {
     navigator.clipboard.writeText(window.location.href);
 }
