@@ -1,7 +1,7 @@
 const json2md = require("json2md")
 const fs = require('fs');
 
-const units = JSON.parse(fs.readFileSync('data/units.json', 'utf8'));
+const units = JSON.parse(fs.readFileSync('./data/units.json', 'utf8'));
 
 const headers = [
      "Icon",

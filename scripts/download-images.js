@@ -6,7 +6,7 @@ const path = require('path');
 
 const root = "https://cdn.playbattleaces.com/images/icons"
 
-const units = JSON.parse(fs.readFileSync('data/units.json', 'utf8'));
+const units = JSON.parse(fs.readFileSync('./data/units.json', 'utf8'));
 
 const images = [
     "techtiers/core.svg",
@@ -31,7 +31,7 @@ images.forEach((imageUrl) => {
     const folderName = parts[parts.length - 2]; 
     const fileName = parts[parts.length - 1]; 
 
-    const directoryPath = path.join(__dirname, `images/${folderName}`);
+    const directoryPath = `./images/${folderName}`
     if (!fs.existsSync(directoryPath)) {
         fs.mkdirSync(directoryPath, { recursive: true });
     }
