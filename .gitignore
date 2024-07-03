@@ -5,3 +5,4 @@ server/node_modules
 server/package-lock.json
 server/data.json
 server/.env
+/test
