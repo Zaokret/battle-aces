@@ -8,14 +8,18 @@
   "version": "1.0.0",
   "main": "",
   "scripts": {
-    "scrape": "node scripts/units.js && node scripts/download-images.js && node scripts/png-to-jpg.js && node scripts/json-to-md.js",
-    "lint": "prettier ./data/units.json --write",
+    "build": "esbuild client/index.js --bundle --outfile=index.js",
+    "client:dev": "npm run build -- --watch",
+    "client:prod": "esbuild client/index.js --bundle --outfile=index.js --minify",
     "server:dev": "npm run dev --prefix server",
-    "server:prod": "npm run prod --prefix server"
+    "server:prod": "npm run prod --prefix server",
+    "scrape": "node scripts/units.js && node scripts/download-images.js && node scripts/png-to-jpg.js && node scripts/json-to-md.js",
+    "lint": "prettier ./data/units.json --write"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "esbuild": "^0.23.0",
     "prettier": "^3.3.2"
   }
 }
