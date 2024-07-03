@@ -20,9 +20,9 @@
 | <img src="../images/units/recallshocker-black.png"> | Recall Shocker | Anti-Ground Splash Ground Unit | Foundry | 5 | 3 | 2 | 1 | Recall | 5 | 125 | 125 |
 | <img src="../images/units/mortar-black.png"> | Mortar | Anti-Ground Splash Ground Unit | Foundry | 5 | 4 | 5 | 2 | Setup | 5 | 125 | 125 |
 | <img src="../images/units/swiftshocker-black.png"> | Swift Shocker | Anti-Ground Splash Ground Unit | Foundry | 5 | 2 | 2 | 4 | / | 5 | 125 | 125 |
-| <img src="../images/units/heavyhunter-black.png"> | Heavy Hunter | Anti-Air Ground Unit | Foundry | 5 | 4 | 4 | 3 | / | 5 | 125 | 125 |
+| <img src="../images/units/heavyhunter-black.png"> | Heavy Hunter | Anti-Air Ground Unit | Foundry | 5 | 4 | 4 | 2 | / | 5 | 125 | 125 |
 | <img src="../images/units/destroyer-black.png"> | Destroyer | Anti-Ground Burst Damage Ground Unit | Foundry | 5 | 3 | 3 | 2 | / | 5 | 125 | 125 |
-| <img src="../images/units/raider-black.png"> | Raider | Anti-Worker Ground Unit | Foundry | 5 | 3 | 2 | 5 | / | 5 | 125 | 125 |
+| <img src="../images/units/raider-black.png"> | Raider | Anti-Worker Ground Unit | Foundry | 5 | 1 | 2 | 3 | / | 5 | 125 | 125 |
 | <img src="../images/units/turret-black.png"> | Turret | Versatile Base Defense | Foundry | 5 | 4 | 4 | 0 | / | 0 | 100 | 50 |
 | <img src="../images/units/butterfly-black.png"> | Butterfly | Anti-Ground Air Unit | Starforge | 5 | 1 | 2 | 3 | / | 5 | 125 | 125 |
 | <img src="../images/units/dragonfly-black.png"> | Dragonfly | Versatile Air Unit | Starforge | 3 | 4 | 2 | 4 | / | 5 | 125 | 125 |
