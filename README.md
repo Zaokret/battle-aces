@@ -17,20 +17,29 @@
 
 ### Client
 `npm install` install client dependencies
+
 `npm run client:dev` bundle and watch javascript with esbuild
+
 `npm run server:dev` run express.js server
+
 open `index.html` with [http-server](https://www.npmjs.com/package/http-server) or similar tool
 
 ### Proxy Server
 `cd server` navigate to server folder
+
 `npm install` install server dependencies 
+
 `echo "" > .env` to create an empty `.env` file
+
 `npm run dev` run for development 
+
 test `http://localhost:3000/data` GET endpoint
 
 ### Scraper
 `npm install` to install project dependencies
+
 `npm run scrape` to download the latest unit information and assets
+
 `npm run list` to prettify unit.json
 
 ## Game integration
