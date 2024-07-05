@@ -19,6 +19,7 @@ fetchUnitsAndTiers()
         setupCards();
         setupAbilities();
         setupStorage();
+        handleSlotClick();
     });
 
 
@@ -37,106 +38,109 @@ document.getElementById('load-file').addEventListener('click', ()=>{
     fileInput.click();
 })
 
-Array.from(cards).forEach(card => {
-    addHoverEffect(card);
-    card.addEventListener('click', () => {
-        const selectionOpen = unitInput.hasChildNodes();
-        if (selectionOpen) {
-            const list = unitInput.children[0];
-            if (list && list.id === card.id) {
-                unitInput.togglePopover(false);
-                return;
+function handleSlotClick() {
+    Array.from(cards).forEach(card => {
+        addHoverEffect(card);
+        card.addEventListener('click', () => {
+            const selectionOpen = unitInput.hasChildNodes();
+            if (selectionOpen) {
+                const list = unitInput.children[0];
+                if (list && list.id === card.id) {
+                    unitInput.togglePopover(false);
+                    return;
+                }
             }
-        }
-
-        unitInput.innerHTML = '';
-        removeInProgress();
-
-        const tierClasses = card.className
-            .split(' ')
-            .filter((c) => c.indexOf('t') > -1);
-
-        const tierIds = tierClasses.map((c) =>
-            parseInt(c.replace('t', ''))
-        );
-
-        const unitList = getUnitsByTier(tierIds);
-
-        const selected = getSelectedUnitSlugs().filter(Boolean);
-        const filteredUnits = unitList.filter(
-            (unit) => !selected.some((slug) => unit.slug === slug)
-        );
-
-        if (filteredUnits.length === 0) {
-            unitInput.innerHTML = `Every unit from ${getTierNamesByIds(tierIds).join(' and ')} already selected.`;
-        } else {
-            resetAnimation();
-            const list = createUnitInputs(filteredUnits, (name, _) => {
-                card.innerHTML = '';
-
-                const img = createSelectedUnitImage(name);
-
-                card.appendChild(img);
-
-                unitInput.hidePopover();
-                const slugs = getSelectedUnitSlugs();
-                saveDeckToUrl(slugs);
-                checkSelectedAbilities(slugs);
-            });
-            list.classList.add(card.id);
-            card.classList.add('selection-in-progress');
-            unitInput.appendChild(list);
-        }
-
-        unitInput.togglePopover();
-    });
-})
-
-Array.from(abilities).forEach(slot => {
-    addHoverToRelatedUnits(slot)
-    slot.addEventListener('click', () => {
-        const selectedUnits = getSelectedUnitSlugs();
-        const available = units
-        .filter(unit => selectedUnits.includes(unit.slug))
-        .reduce((abs, unit) => {
-            if(unit.unitAbility && !abs.includes(unit.unitAbility)) {
-                abs.push(unit.unitAbility.toLowerCase())
+    
+            unitInput.innerHTML = '';
+            removeInProgress();
+    
+            const tierClasses = card.className
+                .split(' ')
+                .filter((c) => c.indexOf('t') > -1);
+    
+            const tierIds = tierClasses.map((c) =>
+                parseInt(c.replace('t', ''))
+            );
+    
+            const unitList = getUnitsByTier(tierIds);
+    
+            const selected = getSelectedUnitSlugs().filter(Boolean);
+            const filteredUnits = unitList.filter(
+                (unit) => !selected.some((slug) => unit.slug === slug)
+            );
+    
+            if (filteredUnits.length === 0) {
+                unitInput.innerHTML = `Every unit from ${getTierNamesByIds(tierIds).join(' and ')} already selected.`;
+            } else {
+                resetAnimation();
+                const list = createUnitInputs(filteredUnits, (name, _) => {
+                    card.innerHTML = '';
+    
+                    const img = createSelectedUnitImage(name);
+    
+                    card.appendChild(img);
+    
+                    unitInput.hidePopover();
+                    const slugs = getSelectedUnitSlugs();
+                    saveDeckToUrl(slugs);
+                    checkSelectedAbilities(slugs);
+                });
+                list.classList.add(card.id);
+                card.classList.add('selection-in-progress');
+                unitInput.appendChild(list);
             }
-            return abs;
-        }, [])
-        abilityInput.innerHTML = ''
-        removeInProgressAbility();
-
-        const selected = getSelectedAbilityNames()
-        
-        Array.from(new Set(available)).sort((a,b) => {
-            return selected.indexOf(a) - selected.indexOf(b);
-        }).forEach(name => {
-            // create and handle selection
-            abilityInput.appendChild(createAbilitySelection(name, () => {
-                // check if the ability is already populated in slots and remove it
-                Array.from(abilities).forEach(selectedAbility => {
-                    const img = selectedAbility.querySelector('img')
-                    if(img && img.id.includes(name.toLowerCase())) {
-                        selectedAbility.innerHTML = ''
-                        selectedAbility.classList.remove('filled-slot')
-                    }
-                })
-                slot.innerHTML = ''
-                slot.appendChild(createAbilityIcon(name));
-                slot.classList.add('filled-slot')
-                
-                saveAbilitiesToUrl(getSelectedAbilityNames())
-                abilityInput.togglePopover(false)
-            }))
-        })
-
-        slot.classList.add('selection-in-progress')
-        abilityInput.style.left = slot.offsetLeft + slot.clientWidth + 'px';
-        abilityInput.style.top = slot.offsetTop + 'px'; 
-        abilityInput.togglePopover();
+    
+            unitInput.togglePopover();
+        });
     })
-})
+    
+    Array.from(abilities).forEach(slot => {
+        addHoverToRelatedUnits(slot)
+        slot.addEventListener('click', () => {
+            const selectedUnits = getSelectedUnitSlugs();
+            const available = units
+            .filter(unit => selectedUnits.includes(unit.slug))
+            .reduce((abs, unit) => {
+                if(unit.unitAbility && !abs.includes(unit.unitAbility)) {
+                    abs.push(unit.unitAbility.toLowerCase())
+                }
+                return abs;
+            }, [])
+            abilityInput.innerHTML = ''
+            removeInProgressAbility();
+    
+            const selected = getSelectedAbilityNames()
+            
+            Array.from(new Set(available)).sort((a,b) => {
+                return selected.indexOf(a) - selected.indexOf(b);
+            }).forEach(name => {
+                // create and handle selection
+                abilityInput.appendChild(createAbilitySelection(name, () => {
+                    // check if the ability is already populated in slots and remove it
+                    Array.from(abilities).forEach(selectedAbility => {
+                        const img = selectedAbility.querySelector('img')
+                        if(img && img.id.includes(name.toLowerCase())) {
+                            selectedAbility.innerHTML = ''
+                            selectedAbility.classList.remove('filled-slot')
+                        }
+                    })
+                    slot.innerHTML = ''
+                    slot.appendChild(createAbilityIcon(name));
+                    slot.classList.add('filled-slot')
+                    
+                    saveAbilitiesToUrl(getSelectedAbilityNames())
+                    abilityInput.togglePopover(false)
+                }))
+            })
+    
+            slot.classList.add('selection-in-progress')
+            abilityInput.style.left = slot.offsetLeft + slot.clientWidth + 'px';
+            abilityInput.style.top = slot.offsetTop + 'px'; 
+            abilityInput.togglePopover();
+        })
+    })
+    
+}
 
 document.getElementById('share-button').addEventListener('click', () => {
     copyDeck();
@@ -693,12 +697,8 @@ function createAbilitySelection(name, handleSelected) {
 }
 
 function createAbilityIcon(name) {
-    const url = 
-    window.location.protocol +
-    '//' +
-    window.location.host +
-    window.location.pathname + 
-    'images/abilities/' +
+    const url = window.location.origin + 
+    '/images/abilities/' +
     name.toLowerCase() +
     '.png'
     const icon = createImageElement(url, `${name.toLowerCase()}-ability-icon`);
