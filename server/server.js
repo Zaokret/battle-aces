@@ -6,14 +6,10 @@ var fs = require('fs');
 var path = require('path')
 require('@dotenvx/dotenvx').config()
 
-function isProd() {
-    return process.env.STATUS === 'production';
-}
-
 var buildId = '';
 var filePath = path.join(__dirname, 'data.json');
 var corsOptions = {
-    origin: isProd() ? 'https://zaokret.github.io' : '*',
+    origin: process.env.CORS,
     optionsSuccessStatus: 200 
   }
 
