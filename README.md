@@ -37,7 +37,7 @@ This is optional: client doesn't use scrapped data.
 
 `pnpm scrape` to download the latest unit information and assets
 
-`pnpm list` to prettify unit.json
+`pnpm lint` to prettify unit.json
 
 ## Game integration
 
