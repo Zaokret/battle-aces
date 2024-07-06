@@ -15,8 +15,8 @@
     "server:prod": "pnpm --prefix server prod",
     "scrape": "node scripts/units.js && node scripts/download-images.js && node scripts/png-to-jpg.js && node scripts/json-to-md.js",
     "lint": "prettier ./data/units.json --write",
-    "prepare": "husky",
-    "test": "echo 'hello, world!'"
+    "bundle": "pnpm client:prod && git add index.js",
+    "prepare": "husky"
   },
   "packageManager": "pnpm@9.4.0",
   "dependencies": {
