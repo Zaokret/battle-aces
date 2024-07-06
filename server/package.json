@@ -1,16 +1,14 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "dev": "dotenvx run -f .env.dev -- node server.js",
     "prod": "dotenvx run -f .env.prod -- node server.js"
   },
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "@dotenvx/dotenvx": "^1.0.0",
+    "@dotenvx/dotenvx": "^1.5.0",
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "node-fetch": "^2.7.0"
