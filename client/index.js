@@ -697,6 +697,7 @@ function createAbilitySelection(name, handleSelected) {
 
 function createAbilityIcon(name) {
     const url = window.location.origin + 
+    window.location.pathname +
     '/images/abilities/' +
     name.toLowerCase() +
     '.png'
