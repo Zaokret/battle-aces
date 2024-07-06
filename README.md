@@ -23,7 +23,7 @@
 
 `pnpm server:dev` run express.js server
 
-test `http://localhost:3000/data` GET endpoint
+`curl http://localhost:3000/data` test GET endpoint
 
 ### Client
 
