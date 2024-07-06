@@ -1,5 +1,4 @@
 {
-  
   "name": "battle-aces",
   "description": "Tools for game Battle Aces",
   "version": "1.0.0",
@@ -10,20 +9,23 @@
     "preinstall": "npx only-allow pnpm",
     "postinstall": "node scripts/create-env.js",
     "build": "esbuild client/index.js --bundle --outfile=index.js",
-    "client:dev": "pnpm build -- --watch",
+    "client:dev": "pnpm build --watch",
     "client:prod": "esbuild client/index.js --bundle --outfile=index.js --minify",
     "server:dev": "pnpm --prefix server dev",
     "server:prod": "pnpm --prefix server prod",
     "scrape": "node scripts/units.js && node scripts/download-images.js && node scripts/png-to-jpg.js && node scripts/json-to-md.js",
-    "lint": "prettier ./data/units.json --write"
+    "lint": "prettier ./data/units.json --write",
+    "prepare": "husky",
+    "test": "echo 'hello,world'"
   },
   "packageManager": "pnpm@9.4.0",
   "dependencies": {
+    "esbuild": "0.21.5",
     "jimp": "^0.22.12",
     "json2md": "^2.0.1"
   },
   "devDependencies": {
-    "esbuild": "^0.23.0",
+    "husky": "^9.0.11",
     "prettier": "^3.3.2"
   }
 }
