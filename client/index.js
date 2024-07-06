@@ -22,7 +22,6 @@ fetchUnitsAndTiers()
         handleSlotClick();
     });
 
-
 const unitInput = document.getElementById('select-unit');
 const cards = document.getElementsByClassName('card');
 const abilityInput = document.getElementById('select-ability')

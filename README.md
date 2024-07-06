@@ -15,32 +15,27 @@
 
 ## Run it yourself
 
-### Client
-`npm install` install client dependencies
+`npm install -g pnpm` install package manager
 
-`npm run client:dev` bundle and watch javascript with esbuild
-
-`npm run server:dev` run express.js server
-
-open `index.html` with [http-server](https://www.npmjs.com/package/http-server) or similar tool
+`pnpm install` install project dependencies
 
 ### Proxy Server
-`cd server` navigate to server folder
 
-`npm install` install server dependencies 
-
-`echo "" > .env` to create an empty `.env` file
-
-`npm run dev` run for development 
+`pnpm server:dev` run express.js server
 
 test `http://localhost:3000/data` GET endpoint
 
+### Client
+
+`pnpm client:dev` bundle and watch javascript with esbuild
+
+open `index.html` with [http-server](https://www.npmjs.com/package/http-server) or similar tool
+
 ### Scraper
-`npm install` to install project dependencies
 
-`npm run scrape` to download the latest unit information and assets
+`pnpm scrape` to download the latest unit information and assets
 
-`npm run list` to prettify unit.json
+`pnpm list` to prettify unit.json
 
 ## Game integration
 
