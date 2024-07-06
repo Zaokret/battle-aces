@@ -16,7 +16,7 @@
     "scrape": "node scripts/units.js && node scripts/download-images.js && node scripts/png-to-jpg.js && node scripts/json-to-md.js",
     "lint": "prettier ./data/units.json --write",
     "prepare": "husky",
-    "test": "echo 'hello,world'"
+    "test": "echo 'hello, world!'"
   },
   "packageManager": "pnpm@9.4.0",
   "dependencies": {
