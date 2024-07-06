@@ -33,6 +33,8 @@ open `index.html` with [http-server](https://www.npmjs.com/package/http-server) 
 
 ### Scraper
 
+This is optional: client doesn't use scrapped data.
+
 `pnpm scrape` to download the latest unit information and assets
 
 `pnpm list` to prettify unit.json
