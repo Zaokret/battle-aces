@@ -133,7 +133,7 @@ function handleSlotClick() {
             })
     
             slot.classList.add('selection-in-progress')
-            if(window.screen.width > 600) {
+            if(window.innerWidth > 600) {
                 abilityInput.style.left = slot.offsetLeft + slot.clientWidth + 'px';
                 abilityInput.style.top = slot.offsetTop + 'px'; 
             } 
@@ -1171,24 +1171,26 @@ function createSelectedUnitImage(name) {
     addHoverToRelatedAbilities(cardImage);
 
     const unit = units.find((unit) => unit.slug === name);
-
-    cardImage.addEventListener('mouseenter', function (event) {
-        const existing = document.getElementById('selected-unit-preview');
-        if (existing || !unit) {
-            return;
-        }
-        const preview = createUnitInput([unit], () => {})[0];
-        preview.id = 'selected-unit-preview';
-
-        const main = document.querySelector('main');
-        main.appendChild(preview);
-    });
-
-    cardImage.addEventListener('mouseleave', function () {
-        const preview = document.getElementById('selected-unit-preview');
-        if (preview) preview.remove();
-    });
-
+    
+    if(window.innerWidth > 600) {
+        cardImage.addEventListener('mouseenter', function (event) {
+            const existing = document.getElementById('selected-unit-preview');
+            if (existing || !unit) {
+                return;
+            }
+            const preview = createUnitInput([unit], () => {})[0];
+            preview.id = 'selected-unit-preview';
+    
+            const main = document.querySelector('main');
+            main.appendChild(preview);
+        });
+    
+        cardImage.addEventListener('mouseleave', function () {
+            const preview = document.getElementById('selected-unit-preview');
+            if (preview) preview.remove();
+        });
+    }
+    
     return cardImage;
 }
 

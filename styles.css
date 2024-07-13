@@ -468,7 +468,8 @@ body {
     #load-file,
     #load-deck,
     #save-deck,
-    #download-deck {
+    #download-deck,
+    #selected-unit-preview {
         display: none;
     }
 
@@ -478,6 +479,9 @@ body {
 
     .deck-preview-group {
         border: 0;
+    }
+    h1 {
+        text-align: center;
     }
 }
 
