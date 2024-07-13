@@ -453,5 +453,31 @@ body {
     #main-selection {
         flex-direction: column-reverse;
     }  
+    .ability.selection {
+        overflow: hidden;
+        display: block;
+        margin-bottom: 5px;
+        margin-left: 0;
+    }
+    #select-ability {
+        margin-top: 15px;
+    }
+
+    #animate-button,
+    #screenshot,
+    #load-file,
+    #load-deck,
+    #save-deck,
+    #download-deck {
+        display: none;
+    }
+
+    #deck-selection .preview-row {
+        flex-direction: column;
+    }
+
+    .deck-preview-group {
+        border: 0;
+    }
 }
 

@@ -133,8 +133,15 @@ function handleSlotClick() {
             })
     
             slot.classList.add('selection-in-progress')
-            abilityInput.style.left = slot.offsetLeft + slot.clientWidth + 'px';
-            abilityInput.style.top = slot.offsetTop + 'px'; 
+            if(window.screen.width > 600) {
+                abilityInput.style.left = slot.offsetLeft + slot.clientWidth + 'px';
+                abilityInput.style.top = slot.offsetTop + 'px'; 
+            } 
+            else {
+                abilityInput.style.left = slot.offsetLeft + 'px';
+                abilityInput.style.top = slot.offsetTop + slot.clientHeight + 'px'; 
+            }
+
             abilityInput.togglePopover();
         })
     })
@@ -336,7 +343,7 @@ function createDeckPreviews(decks) {
     }
 
     const row1 = document.createElement('div')
-    row1.className = 'row'
+    row1.className = 'row preview-row'
     const deckPreview1 = document.createElement('div')
     deckPreview1.addEventListener('click', handleDeckSelection(0))
     deckPreview1.appendChild(createDeckPreview(decks[0], 0))
@@ -351,7 +358,7 @@ function createDeckPreviews(decks) {
     row1.appendChild(deckPreview2)
 
     const row2 = document.createElement('div')
-    row2.className = 'row'
+    row2.className = 'row preview-row'
     const deckPreview3 = document.createElement('div')
     deckPreview3.addEventListener('click', handleDeckSelection(2))
     deckPreview3.appendChild(createDeckPreview(decks[2], 2))
