@@ -11,6 +11,8 @@
     "@dotenvx/dotenvx": "^1.5.0",
     "cors": "^2.8.5",
     "express": "^4.19.2",
+    "mongoose": "^8.4.5",
+    "node-cron": "^3.0.3",
     "node-fetch": "^2.7.0"
   }
 }

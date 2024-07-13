@@ -1213,7 +1213,16 @@ function getImageUrl(name, dir) {
         units: 'png',
         resources: 'svg',
     };
+
     const slug = name.replace(' ', '').toLowerCase();
+    if(dir === 'units') { 
+        return window.location.origin + 
+        window.location.pathname + 
+        '/images/icons/' + 
+        slug + 
+        '.png'
+    }
+
     if (extByDir[dir] === 'svg') {
         return `./images/${dir}/${slug}.svg`;
     }
