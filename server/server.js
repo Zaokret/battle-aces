@@ -3,26 +3,28 @@ var app = express();
 var cors = require('cors');
 var fetch = require('node-fetch');
 var fs = require('fs');
-var path = require('path')
-require('@dotenvx/dotenvx').config()
+var path = require('path');
+require('@dotenvx/dotenvx').config();
 
 var buildId = '';
 var filePath = path.join(__dirname, 'data.json');
 var corsOptions = {
     origin: process.env.CORS,
-    optionsSuccessStatus: 200 
-  }
+    optionsSuccessStatus: 200,
+};
 
-app.use(cors(corsOptions))
+app.use(cors(corsOptions));
 
 app.get('/data', function (req, res) {
-    fetchData().then(data => {
+    fetchData().then((data) => {
         res.json(data);
-    })
+    });
 });
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, function () {
-    console.log(`Battle Aces Proxy Server listening on port ${PORT} in ${process.env.STATUS} mode.`);
+    console.log(
+        `Battle Aces Proxy Server listening on port ${PORT} in ${process.env.STATUS} mode.`
+    );
 });
 
 function fetchData() {
@@ -30,24 +32,25 @@ function fetchData() {
         .then((res) => res.text())
         .then(extractBuildId)
         .then((id) => {
-            if(buildId !== id) {
+            if (buildId !== id) {
                 buildId = id;
                 return fetch(urlBuilder(id))
-                .then(res => res.json())
-                .then(body => {
-                    const model = {
-                        tiers: parseTechTiers(body),
-                        units: parseAndSortUnits(body),
-                    }
-                    fs.writeFile(filePath, JSON.stringify(model), (err) => console.error(err))
-                    return model;
-                })
-            }
-            else {
+                    .then((res) => res.json())
+                    .then((body) => {
+                        const model = {
+                            tiers: parseTechTiers(body),
+                            units: parseAndSortUnits(body),
+                        };
+                        fs.writeFile(filePath, JSON.stringify(model), (err) =>
+                            console.error(err)
+                        );
+                        return model;
+                    });
+            } else {
                 const str = fs.readFileSync(filePath);
-                return JSON.parse(str)
+                return JSON.parse(str);
             }
-        })
+        });
 }
 
 function urlBuilder(buildId) {
@@ -67,8 +70,7 @@ function parseAndSortUnits(body) {
         );
         return tier.name;
     };
-
-    return body.pageProps.data.allUnits
+    return body.pageProps.data.allUnitDevs
         .map((unit) => ({
             id: unit.id,
             costBandwidth: unit.costBandwidth,
@@ -84,7 +86,7 @@ function parseAndSortUnits(body) {
             unitAbility: unit.unitAbility && unit.unitAbility.name,
             unitTag: unit.unitTag,
             slug: unit.slug,
-            unitId: unit.unitId
+            unitId: unit.unitId,
         }))
         .sort((a, b) => a.techTierId - b.techTierId);
 }
